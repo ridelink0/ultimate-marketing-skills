@@ -110,6 +110,27 @@ S2. Build: skills/sales-playbook/SKILL.md + references/sales.md; data/sales.json
     tells for sales email (fake "Re:" subjects, false familiarity, fake urgency); advise types get a
     sales rung where the project sells B2B (saas, devtool). README + CHANGELOG + directory edition.
 
+Sales pipeline already built and committed 55e2d16 (`ums pipeline`, 42/42 tests). S2 above still
+needs the research-backed parts (sales skill, references/sales.md, data/sales.json, sell command).
+
+NEW SCOPE (Gev, 2026-11-25): "make for claude directory usage limits and UFS up to date".
+D1. Find the canonical UFS source: compare D:/plugin-work-1101/suite HEAD with GitHub
+    ridelink0/ultimate-frontend-skills master (657229889362 on 2026-11-25) and the local
+    marketplace clone (6572298 "Directory editions of UFS and Usage Limits under directory/").
+    Work in a fresh worktree/branch of whichever is newest; preserve other chats' dirty work.
+D2. Regenerate directory/ultimate-frontend-skills and directory/usage-limits from current
+    sources (UFS tools/directory-edition.mjs; check how usage-limits edition is built). Versions
+    must match the current plugin.json of each (UFS 6.12.0? usage-limits 1.46.0 is installed
+    locally - confirm which is released).
+D3. Run `claude plugin validate` on both edition folders, twice. Check each against the live
+    Software Directory Policy (support.claude.com/en/articles/13145358): 4B AI image/video/audio
+    generation (UFS image generation via Pollinations and any TTS must be absent unless purely
+    design assets), 4C ads, no hidden or dynamically pulled instructions, privacy link, README
+    >= 40 words with 3 example prompts and an install line, < 512 files, no non-image file over
+    256 KiB, no scripts/hooks in the edition.
+D4. Run that repo's own tests (test/directory-edition.test.mjs and the suite), commit on a branch,
+    then ASK Gev before pushing or resubmitting in the portal.
+
 UFS-parity gaps still open, do in this order:
 1. Bug pass 2 (adversarial): Windows paths with spaces/quotes in storyboard media; fontFile family;
    SRT with BOM/CRLF; words.json shapes; queue concurrent ids; run with item.at in future; X weighted
