@@ -1,0 +1,13 @@
+{
+  "platform": "tiktok",
+  "fps": 30,
+  "background": "#0c0a03",
+  "font": "Arial",
+  "style": { "color": "#f2ede4", "outline": "#0c0a03", "titleSize": 92, "captionSize": 60 },
+  "scenes": [
+    { "duration": 1.6, "text": "I spent 40 minutes a week\nfiling receipts." },
+    { "duration": 1.8, "background": "#15120a", "text": "Now it takes one photo." },
+    { "duration": 2.2, "background": "#15120a", "text": "Point. Done.", "caption": "The expense files itself into the right month" },
+    { "duration": 2.0, "background": "#d4af37", "text": "Free on iOS and Android", "align": "top", "caption": "Link in bio" }
+  ]
+}
