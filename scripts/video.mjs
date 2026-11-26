@@ -21,6 +21,17 @@ const BIN = {
   ffprobe: process.env.UMS_FFPROBE || 'ffprobe',
 };
 
+// Homebrew's plain ffmpeg is built without libass, so the ass filter that
+// draws on-screen text is missing there; ffmpeg-full has it.
+let filterCache = null;
+export function hasFilter(name) {
+  if (!filterCache) {
+    const r = spawnSync(BIN.ffmpeg, ['-hide_banner', '-filters'], { encoding: 'utf8', windowsHide: true });
+    filterCache = new Set(String(r.stdout || '').split('\n').map((l) => l.trim().split(/\s+/)[1]).filter(Boolean));
+  }
+  return filterCache.has(name);
+}
+
 export function have(tool) {
   const r = spawnSync(BIN[tool] || tool, ['-version'], { encoding: 'utf8' });
   return r.status === 0;
@@ -300,11 +311,15 @@ export function build(storyboardFile, outFile, { keep = false, dryRun = false } 
     writeFileSync(join(work, 'list.txt'), segs.map((s) => `file '${s.out}'`).join('\n') + '\n');
     const style = { ...(sb.style || {}), font: sb.font || sb.style?.font };
     writeFileSync(join(work, 'text.ass'), buildAss({ w: sb.w, h: sb.h, scenes: sb.scenes, cues, style }));
-    let assFilter = 'ass=filename=text.ass';
+    const needsText = cues.length > 0 || sb.scenes.some((s) => s.text || s.caption);
+    if (needsText && !hasFilter('ass')) {
+      throw new Error('this ffmpeg has no libass, so it cannot draw on-screen text. Install a full build: ' + 'brew install ffmpeg-full (macOS; the plain Homebrew ffmpeg has no libass, so no on-screen text)' + '; Windows: winget install Gyan.FFmpeg; Linux: apt install ffmpeg');
+    }
+    let assFilter = needsText ? 'ass=filename=text.ass' : 'null';
     if (sb.fontFile) {
       mkdirSync(join(work, 'fonts'), { recursive: true });
       copyFileSync(sb.fontFile, join(work, 'fonts', basename(sb.fontFile)));
-      assFilter = 'ass=filename=text.ass:fontsdir=fonts';
+      if (needsText) assFilter = 'ass=filename=text.ass:fontsdir=fonts';
     }
     const concatArgs = ['-hide_banner', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', 'list.txt', '-c', 'copy', '-y', 'joined.mp4'];
     plan.push(['ffmpeg', ...concatArgs]);

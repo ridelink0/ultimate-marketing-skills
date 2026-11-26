@@ -37,7 +37,9 @@ export function doctor() {
     bluesky: ['BSKY_HANDLE', 'BSKY_APP_PASSWORD'].every((k) => Boolean(process.env[k])),
   };
   const unlocks = [];
-  unlocks.push(ffmpeg ? 'video build, export, check, sheet, frames and safezone' : 'NO video: install ffmpeg (winget install Gyan.FFmpeg, brew install ffmpeg, or apt install ffmpeg)');
+  const libass = ffmpeg ? spawnSync(process.env.UMS_FFMPEG || 'ffmpeg', ['-hide_banner', '-filters'], { encoding: 'utf8', windowsHide: true, shell: process.platform === 'win32' }).stdout.split('\n').some((l) => /^\s*\S+\s+ass\s/.test(l)) : false;
+  tools.libass = ffmpeg ? (libass ? 'yes (on-screen text)' : 'NO: text and captions cannot render; ' + 'brew install ffmpeg-full (macOS; the plain Homebrew ffmpeg has no libass, so no on-screen text)') : null;
+  unlocks.push(ffmpeg ? (libass ? 'video build, export, check, sheet, frames and safezone' : 'video export, check, sheet and frames; NOT text or captions in video build until ffmpeg has libass (brew install ffmpeg-full (macOS; the plain Homebrew ffmpeg has no libass, so no on-screen text))') : 'NO video: install ffmpeg (winget install Gyan.FFmpeg, brew install ffmpeg-full (macOS; the plain Homebrew ffmpeg has no libass, so no on-screen text), or apt install ffmpeg)');
   unlocks.push(tools.whisper ? 'word-level captions from a voiceover (faster-whisper JSON into storyboard "captions")' : 'captions from scene text and SRT files only; install faster-whisper for word timings from a voiceover');
   unlocks.push(plugins['ultimate-frontend-skills'] ? 'UFS: landing pages, link-preview share cards, image deep research, Remotion video' : 'UFS not found: landing pages and share cards are written by hand; install ultimate-frontend-skills for them');
   unlocks.push(creds.x ? 'X: approved text posts and threads can publish in autopilot' : 'X: no API credentials; X posts are published by a person');

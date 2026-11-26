@@ -108,3 +108,14 @@ test('pass 2: exporting a clip with no audio adds a silent track', { skip: !ff &
   assert.equal(c.info.width, 1080);
   assert.ok(Math.abs(c.info.duration - 2) < 0.1, `duration ${c.info.duration}`);
 });
+
+test('a storyboard with no text never asks ffmpeg for the ass filter (works on ffmpeg builds without libass)', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'ums-v-'));
+  writeFileSync(join(dir, 'sb.json'), JSON.stringify({ size: '720x1280', scenes: [{ duration: 1, background: '#202020' }] }));
+  const plan = build(join(dir, 'sb.json'), join(dir, 'x.mp4'), { dryRun: true }).plan.map((p) => p.join(' ')).join('\n');
+  assert.ok(plan.includes('[0:v]null[v]'));
+  assert.ok(!plan.includes('ass=filename'));
+  writeFileSync(join(dir, 't.json'), JSON.stringify({ size: '720x1280', scenes: [{ duration: 1, text: 'Hook' }] }));
+  const withText = build(join(dir, 't.json'), join(dir, 'y.mp4'), { dryRun: true }).plan.map((p) => p.join(' ')).join('\n');
+  assert.ok(withText.includes('ass=filename=text.ass'));
+});

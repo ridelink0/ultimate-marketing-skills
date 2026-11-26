@@ -8,7 +8,7 @@
           "kind": "bin",
           "id": "ffmpeg",
           "why": "renders, checks loudness, exports",
-          "how": "winget install Gyan.FFmpeg (Windows), brew install ffmpeg (macOS), apt install ffmpeg (Linux)"
+          "how": "winget install Gyan.FFmpeg (Windows), brew install ffmpeg-full (macOS; the plain Homebrew ffmpeg has no libass, so no on-screen text), apt install ffmpeg (Linux)"
         },
         {
           "kind": "bin",

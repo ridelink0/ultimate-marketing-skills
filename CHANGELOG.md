@@ -27,6 +27,8 @@ First release.
 - Email builder version 2: themes (clean, editorial, night), logo header, hero image,
   cards, image-beside-text sections that stack on phones, dividers, dark-mode colours,
   Outlook width fix; checks for hero and section alt text and unhosted images.
+- macOS: Homebrew's plain ffmpeg has no libass. video build now says so and names ffmpeg-full
+  when a storyboard has text, skips the text filter when it has none, and doctor reports libass.
 - Vendor plugins: Canva, Figma, Supermetrics, Amplitude, Resend, Notion and Apollo pinned
   as packs with install lines; ums tools detects them and routes jobs to them; Meta and
   TikTok ads servers listed (ads only, spend approved by a person); mcp.md says which

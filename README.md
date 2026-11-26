@@ -21,7 +21,8 @@ claude plugin install ultimate-marketing-skills@ultimate-marketing-skills
 ```
 
 Needs Node 22 or newer. Video needs ffmpeg
-(`winget install Gyan.FFmpeg`, `brew install ffmpeg`, or `apt install ffmpeg`).
+(`winget install Gyan.FFmpeg`, `brew install ffmpeg-full` on macOS since the
+plain Homebrew build has no libass for on-screen text, or `apt install ffmpeg`).
 Then ask Claude to run `/ultimate-marketing-skills:doctor`.
 
 ## Try it
