@@ -1,0 +1,156 @@
+{
+  "about": "What UMS recommends per project type. Tactics are ranked within each type; effort 1 is a solo founder with a phone and under three hours a week, 2 is a few hours a day or a small budget, 3 is a team or paid amplification. evidence.kind is measured (a dataset or platform figure), reported (a named team's own claim), or practice (common practitioner advice, no data). Never present a reported or practice item as measured.",
+  "checked": "2026-11-25",
+  "tactics": {
+    "short-video-native": {
+      "name": "Native vertical video, three a week",
+      "effort": 1, "hours": 3, "cost": 0, "autonomy": "supervised",
+      "channels": ["tiktok", "reels", "shorts"],
+      "steps": ["Film or render one idea per video, 15 to 45 seconds, the payoff shown in the first two seconds.", "Burn in captions; most feeds start muted.", "Export clean per platform with ums video export; no other app's watermark.", "Post the same idea natively on each platform, not a cross-post with another logo on it."],
+      "evidence": { "kind": "measured", "source": "Socialinsider H1 2026 short-video study, 23.6M videos; Instagram originality guidance (30 Apr 2026 expansion to photos and carousels)", "note": "Instagram demotes reposted and watermarked content; YouTube Shorts run up to 3 minutes." }
+    },
+    "devlog-shorts": {
+      "name": "Devlog and progress clips",
+      "effort": 1, "hours": 3, "cost": 0, "autonomy": "supervised",
+      "channels": ["shorts", "tiktok", "x", "reddit"],
+      "steps": ["Clip the most surprising 5 to 20 seconds of a build each week: a bug, a before and after, a mechanic.", "Title it as the change, not the game name.", "Pin the wishlist or store link in the profile and first reply."],
+      "evidence": { "kind": "reported", "source": "DREADMOOR (May 2026, self-reported 70K to 200K+ wishlists across vertical video rounds); Tiny Terraces (Nov 2025, self-reported 1.1M Shorts views, $17K first month)", "note": "Self-reported; no analytics shown." }
+    },
+    "steam-page-early": {
+      "name": "Steam page live early, then Next Fest",
+      "effort": 2, "hours": 6, "cost": 0, "autonomy": "person",
+      "channels": ["steam"],
+      "steps": ["Put the store page up as soon as the capsule and a trailer exist; wishlists only accrue to a live page.", "Make the capsule readable at 462x174 and the first trailer seconds show play, not logos.", "Enter Steam Next Fest with a demo once the page has momentum: fest lift grows with starting wishlists."],
+      "evidence": { "kind": "measured", "source": "howtomarketagame.com Next Fest survey (208 of 2,244 games, Feb 2025): median gain 23.7K wishlists for games starting at 100K+, 462 for games under 1K; Alinea Analytics (Feb 2026) wishlist-to-buyer 1.3% to 5.5% in first weeks", "note": "Most fest wishlists come from people who never play the demo." }
+    },
+    "streamer-outreach": {
+      "name": "Creator and streamer keys",
+      "effort": 2, "hours": 4, "cost": 0, "autonomy": "person",
+      "channels": ["youtube", "twitch", "email"],
+      "steps": ["List 30 creators who played a similar game in the last 90 days.", "Send one short personal email each with a key and a 30-second clip; no mass mail.", "Track who played it and clip their moment (with permission) for your own channels."],
+      "evidence": { "kind": "reported", "source": "Peak and Content Warning (2024) spread through streamers, per press coverage", "note": "Outreach is a person's job in UMS; it drafts, a person sends." }
+    },
+    "ugc-creators": {
+      "name": "Paid UGC creators on fixed fees",
+      "effort": 3, "hours": 8, "cost": 2000, "autonomy": "person",
+      "channels": ["tiktok", "reels"],
+      "steps": ["Brief 5 to 20 creators with one hook each and the app on screen in the first three seconds.", "Require #ad or the platform's paid-partnership label on every post.", "Keep the winners as Spark Ads or partnership ads; cut the rest after a week."],
+      "evidence": { "kind": "reported", "source": "Cal AI (about 250 fixed-fee creators plus owned accounts, figures conflict across sources); NaturalWrite (Sep 2025, self-reported)", "note": "Disclosure is mandatory: FTC Endorsement Guides, UK ASA, platform labels." }
+    },
+    "owned-faceless-accounts": {
+      "name": "Owned slideshow and faceless accounts",
+      "effort": 2, "hours": 6, "cost": 0, "autonomy": "supervised",
+      "channels": ["tiktok", "reels"],
+      "steps": ["Run one account per audience angle, each clearly the brand's own (no fake personas).", "Post TikTok photo-mode slideshows built with ums video build or as carousels: problem, three steps, result.", "Retire angles that stay under the account's median views after ten posts."],
+      "evidence": { "kind": "reported", "source": "Dan Kwon apps Kunch AI, Arise, Shepherd (Oct 2025 interview claims)", "note": "Accounts must not pretend to be unrelated users; that is sockpuppeting and a ban offence." }
+    },
+    "aso-basics": {
+      "name": "Store page that converts",
+      "effort": 1, "hours": 2, "cost": 0, "autonomy": "supervised",
+      "channels": ["appstore", "googleplay"],
+      "steps": ["First three screenshots carry the whole pitch, one claim each.", "Add a 15 to 30 second app preview (886x1920 on current iPhones) that starts on the result.", "Use custom product pages for each ad or creator angle so the store matches the video they came from."],
+      "evidence": { "kind": "measured", "source": "Apple App Store Connect app preview and screenshot specifications (read 2026-11-25)", "note": "Specs are measured; conversion lift figures were not found in primary sources." }
+    },
+    "build-in-public": {
+      "name": "Build in public on X and Bluesky",
+      "effort": 1, "hours": 3, "cost": 0, "autonomy": "autopilot",
+      "channels": ["x", "bluesky", "threads"],
+      "steps": ["Post one real number, decision or screenshot a day; replies matter more than posts.", "Keep links out of the main post on X and put them in the first reply.", "Batch a week of posts, approve once in autopilot, reply by hand."],
+      "evidence": { "kind": "measured", "source": "X open-sourced ranker (github.com/xai-org/x-algorithm): weighted sum of predicted engagement including replies; Buffer study of 1.7M posts (Mar 2025): X mean 328 engagements vs median about 4", "note": "Heavy tail: most posts get little; consistency and replies compound." }
+    },
+    "launch-day": {
+      "name": "Coordinated launch: Product Hunt, Show HN, communities",
+      "effort": 2, "hours": 10, "cost": 0, "autonomy": "person",
+      "channels": ["producthunt", "hackernews", "reddit", "x"],
+      "steps": ["Show HN: title is what it is, link to something people can try, the maker answers every comment; never ask for upvotes.", "Product Hunt: points weigh upvotes plus engagement; line up real users to comment, not vote rings.", "Post to the one or two subreddits whose rules allow it, as a maker sharing work."],
+      "evidence": { "kind": "measured", "source": "news.ycombinator.com/showhn.html and newsguidelines.html (no vote solicitation, no automated posting, no AI-edited comments); Product Hunt staff post on points; arXiv HN launch study (Nov 2025)", "note": "Every channel here bans automated posting or voting, so UMS prepares and a person posts." }
+    },
+    "seo-geo": {
+      "name": "Search and AI answers",
+      "effort": 2, "hours": 4, "cost": 0, "autonomy": "draft",
+      "channels": ["web"],
+      "steps": ["Write the pages people and answer engines quote: comparisons, alternatives, how-to with real steps, pricing in plain text.", "Get mentioned where answer engines read: Reddit threads, YouTube, review sites, docs.", "Skip llms.txt for Google; Google's AI features guidance says no new machine-readable files are needed."],
+      "evidence": { "kind": "measured", "source": "Pew Research (22 Jul 2025): 8% click rate with an AI summary vs 15% without; Google Search Central AI features page", "note": "Vendor citation studies (Ahrefs, Semrush, Seer) disagree; treat their shares as directional." }
+    },
+    "free-tool": {
+      "name": "Free tool or calculator as the top of the funnel",
+      "effort": 3, "hours": 12, "cost": 0, "autonomy": "draft",
+      "channels": ["web"],
+      "steps": ["Build the smallest useful tool your buyer searches for (use Ultimate Frontend Skills for the page).", "Give it its own share card (UFS link-preview) and a one-line why on the result screen.", "Link the product only where the tool's answer runs out."],
+      "evidence": { "kind": "practice", "source": "common practitioner advice; no verified 2024-2026 revenue case found", "note": "Label as practice." }
+    },
+    "linkedin-founder": {
+      "name": "Founder posts on LinkedIn",
+      "effort": 1, "hours": 2, "cost": 0, "autonomy": "supervised",
+      "channels": ["linkedin"],
+      "steps": ["Two posts a week from the founder's own account: one lesson, one proof.", "Document posts (PDF carousels) for frameworks; native video for demos.", "No engagement pods or automated comments: LinkedIn names both as targets."],
+      "evidence": { "kind": "measured", "source": "LinkedIn engineering/product post (12 Mar 2026): feed ranking uses generative recommenders and LLMs, demotes engagement bait, targets pods and comment automation", "note": "Reach figures from third parties were not verified." }
+    },
+    "newsletter": {
+      "name": "Owned email list",
+      "effort": 1, "hours": 2, "cost": 0, "autonomy": "supervised",
+      "channels": ["newsletter"],
+      "steps": ["One email when there is something worth reading, not on a calendar for its own sake.", "Every short video and post points at one thing people can sign up for.", "Honour opt-outs within 10 business days (CAN-SPAM) and get consent first in the EU and UK."],
+      "evidence": { "kind": "measured", "source": "FTC CAN-SPAM guidance; penalties up to $53,088 per violating email (16 CFR 1.98, Jan 2025)", "note": "Growth benchmarks for referrals were not found in primary sources." }
+    },
+    "google-business-profile": {
+      "name": "Google Business Profile and reviews",
+      "effort": 1, "hours": 1, "cost": 0, "autonomy": "person",
+      "channels": ["google"],
+      "steps": ["Complete every field, real photos, opening hours kept current.", "Ask every happy customer for a review in person or on the receipt; never buy, write or filter reviews.", "Reply to every review by hand within two days."],
+      "evidence": { "kind": "practice", "source": "Google-promotional and agency figures only; FTC 16 CFR Part 465 bans fake and bought reviews (effective 21 Oct 2024)", "note": "Label performance as practice; the review law is measured fact." }
+    },
+    "local-short-video": {
+      "name": "Behind-the-counter short video",
+      "effort": 1, "hours": 2, "cost": 0, "autonomy": "supervised",
+      "channels": ["tiktok", "reels"],
+      "steps": ["Film the thing only you do: the oven, the fix, the regular.", "Location tag and city in the caption.", "Use the platform's commercial music library or original sound on a business account."],
+      "evidence": { "kind": "reported", "source": "Judy's Family Cafe (Marketing Brew, Oct 2024, owner reports sales up 50%); The Nitro Bar (60% lift claim, no baseline)", "note": "Owner quotes, not audited." }
+    },
+    "discord-community": {
+      "name": "Discord for playtests and regulars",
+      "effort": 2, "hours": 4, "cost": 0, "autonomy": "person",
+      "channels": ["discord"],
+      "steps": ["Open the server when there is something to do in it: a playtest, a beta, a weekly build.", "Onboarding asks for rules and one role, nothing more.", "Post announcements from UMS drafts; moderation and replies stay human."],
+      "evidence": { "kind": "measured", "source": "Discord developer docs and community playbook (Mar 2025): Server Insights at 500 members; discoverable servers (1,000+ members) get public web pages from 16 Nov 2026", "note": "No named studio playtest with numbers was found." }
+    },
+    "reddit-participation": {
+      "name": "Reddit as a member, not an advertiser",
+      "effort": 1, "hours": 2, "cost": 0, "autonomy": "person",
+      "channels": ["reddit"],
+      "steps": ["Read each subreddit's own self-promotion rule; the ratio is set by moderators, not by Reddit.", "Comment usefully for weeks before linking anything of your own.", "When you share, say you made it."],
+      "evidence": { "kind": "practice", "source": "Reddit help-centre spam page (search excerpt; page returned 403): self-promotion limits are set per community", "note": "Reddit's growing weight in Google and AI answers makes good threads durable." }
+    },
+    "spark-boost": {
+      "name": "Boost only what already worked",
+      "effort": 3, "hours": 3, "cost": 300, "autonomy": "person",
+      "channels": ["tiktok", "reels", "x"],
+      "steps": ["Wait seven days; boost only posts in the account's top 10% by watch time or saves.", "Set a hard daily cap; UMS never spends without a person approving the amount.", "Measure cost per install, wishlist or signup, not views."],
+      "evidence": { "kind": "practice", "source": "vendor roundups conflict (Spark Ads completion 78.3% vs 28.4%)", "note": "Treat vendor ad figures as unreliable." }
+    },
+    "open-source-readme": {
+      "name": "README, demo GIF and a Show HN",
+      "effort": 1, "hours": 4, "cost": 0, "autonomy": "draft",
+      "channels": ["github", "hackernews", "x"],
+      "steps": ["Make the README's first screen a 10-second demo and the install line.", "Give the repo a share card (UFS link-preview) so every link unfurls well.", "Launch with Show HN and answer every comment yourself."],
+      "evidence": { "kind": "practice", "source": "Show HN rules (news.ycombinator.com/showhn.html)", "note": "Rules are measured fact; outcomes are practice." }
+    }
+  },
+  "types": {
+    "game": { "name": "Indie game", "goal": "wishlists, then sales", "order": ["steam-page-early", "devlog-shorts", "short-video-native", "reddit-participation", "discord-community", "streamer-outreach", "build-in-public", "spark-boost"] },
+    "mobile-app": { "name": "Mobile app", "goal": "installs that retain", "order": ["short-video-native", "aso-basics", "owned-faceless-accounts", "ugc-creators", "build-in-public", "seo-geo", "spark-boost"] },
+    "saas": { "name": "SaaS", "goal": "qualified signups", "order": ["linkedin-founder", "build-in-public", "seo-geo", "launch-day", "free-tool", "newsletter", "short-video-native"] },
+    "devtool": { "name": "Developer tool", "goal": "active users and stars that convert", "order": ["open-source-readme", "launch-day", "build-in-public", "seo-geo", "reddit-participation", "discord-community", "newsletter"] },
+    "open-source": { "name": "Open-source project", "goal": "users and contributors", "order": ["open-source-readme", "launch-day", "build-in-public", "reddit-participation", "discord-community"] },
+    "website": { "name": "Content site or web product", "goal": "returning visitors", "order": ["seo-geo", "newsletter", "short-video-native", "build-in-public", "free-tool", "reddit-participation"] },
+    "local-business": { "name": "Local business", "goal": "visits and calls", "order": ["google-business-profile", "local-short-video", "short-video-native", "newsletter", "spark-boost"] },
+    "ecommerce": { "name": "Small e-commerce brand", "goal": "first and repeat orders", "order": ["short-video-native", "ugc-creators", "owned-faceless-accounts", "newsletter", "seo-geo", "spark-boost"] },
+    "creator": { "name": "Creator or newsletter", "goal": "subscribers", "order": ["short-video-native", "newsletter", "build-in-public", "linkedin-founder", "reddit-participation"] }
+  },
+  "stages": {
+    "prelaunch": "Build the audience before the product is out: page live, list open, one channel posting.",
+    "launch": "Concentrate a week: launch posts, launch-day sites, creator keys, every comment answered.",
+    "growth": "Double down on the one channel that produced users; cut the rest.",
+    "stalled": "Change the message before the channel: re-run positioning with the brief, test three new hooks."
+  }
+}

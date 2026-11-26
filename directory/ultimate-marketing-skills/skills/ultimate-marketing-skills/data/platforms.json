@@ -1,0 +1,105 @@
+{
+  "about": "Platform limits UMS checks posts and videos against. Each value records where it came from. verified=true means it was read on the platform's own page on the date given; verified=false means only third-party or snippet evidence was found, so UMS treats it as a warning rather than a hard stop where it can. Refresh with the research in references/research.md before relying on a value for a paid campaign.",
+  "checked": "2026-11-25",
+  "loudness": {
+    "targetLufs": -14,
+    "truePeakDbtp": -1,
+    "verified": false,
+    "note": "No platform publishes an organic upload loudness target. -14 LUFS integrated with -1 dBTP true peak is UMS's working target because it survives every feed's normalisation without pumping. Google's DV360 ad spec is -24 LKFS +/-2, which applies to ads only."
+  },
+  "platforms": {
+    "x": {
+      "name": "X",
+      "text": { "text": { "max": 280, "unit": "x-weighted", "verified": true, "source": "https://docs.x.com/fundamentals/counting-characters" } },
+      "hashtags": { "max": 2, "hard": false, "note": "practice, not a rule" },
+      "links": { "inBody": "penalised", "note": "API posts with a URL cost $0.20 against $0.015 without (docs.x.com pricing, read 2026-11-25), and outside analyses report far lower reach for link posts, which X denies. Put the link in the first reply." },
+      "video": { "aspect": "9:16", "aspectHard": false, "recommended": "1080x1920", "maxSeconds": 1200, "maxBytes": 8000000000, "maxFps": 60, "verified": true, "source": "https://docs.x.com/x-api/media/introduction", "note": "API limits: 20 minutes and 8 GB by default; 125 minutes and 16 GB for Premium. 16:9 and 1:1 also play well." }
+    },
+    "bluesky": {
+      "name": "Bluesky",
+      "text": { "text": { "max": 300, "unit": "graphemes", "verified": true, "source": "https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json", "note": "maxGraphemes 300 in the app.bsky.feed.post lexicon" } },
+      "hashtags": { "max": 3, "hard": false },
+      "links": { "inBody": "fine", "note": "Links are rich-text facets and do not reduce distribution." }
+    },
+    "threads": {
+      "name": "Threads",
+      "text": { "text": { "max": 500, "unit": "characters", "verified": true, "source": "https://developers.facebook.com/docs/threads/posts" } },
+      "hashtags": { "max": 1, "hard": true, "note": "Threads takes one topic tag per post." },
+      "links": { "inBody": "fine", "note": "Up to 5 links per post." },
+      "video": { "aspect": "9:16", "aspectHard": false, "recommended": "1080x1920", "maxSeconds": 300, "maxBytes": 1000000000, "maxFps": 60, "verified": true, "source": "https://developers.facebook.com/docs/threads/overview" }
+    },
+    "linkedin": {
+      "name": "LinkedIn",
+      "text": { "text": { "max": 3000, "foldAt": 210, "unit": "characters", "verified": false, "source": "third-party; LinkedIn help pages did not return the value on 2026-11-25" } },
+      "hashtags": { "max": 3, "hard": false },
+      "links": { "inBody": "penalised", "note": "LinkedIn's March 2026 feed post says ranking now uses generative recommenders and demotes engagement bait; practitioners still report lower reach on posts with an outbound link. Put the link in the first comment or a document post." },
+      "video": { "aspect": "9:16", "aspectHard": false, "recommended": "1080x1920", "maxSeconds": 600, "maxFps": 60, "verified": false, "source": "https://www.linkedin.com/help/linkedin/answer/a548372", "note": "Pages video spec read; personal-post limits not confirmed. 1:1 and 4:5 also work." }
+    },
+    "instagram": {
+      "name": "Instagram",
+      "needsMedia": true,
+      "text": { "text": { "max": 2200, "foldAt": 125, "unit": "characters", "verified": false, "source": "third-party; Instagram help pages returned empty on 2026-11-25" } },
+      "hashtags": { "max": 5, "hard": false, "verified": false, "note": "A 5-hashtag cap was reported from Adam Mosseri on 2025-12-19; some outlets call it a test." },
+      "links": { "inBody": "not-clickable", "note": "use the bio link, a story link sticker or a DM keyword." }
+    },
+    "reels": {
+      "name": "Instagram Reels",
+      "needsMedia": true,
+      "text": { "text": { "max": 2200, "foldAt": 125, "unit": "characters", "verified": false, "source": "third-party" } },
+      "hashtags": { "max": 5, "hard": false, "verified": false },
+      "links": { "inBody": "not-clickable", "note": "use the bio link or a DM keyword." },
+      "video": { "aspect": "9:16", "aspectHard": true, "recommended": "1080x1920", "maxSeconds": 180, "maxFps": 60, "verified": false, "source": "Instagram announcement, January 2025 (3-minute Reels); longer uploads unconfirmed", "safeArea": { "top": 0.14, "bottom": 0.35, "left": 0.06, "right": 0.06, "note": "Meta Ads Guide for Instagram Reels ads (read 2026-11-25): keep the top 14%, bottom 35% and 6% each side free of text and logos." } }
+    },
+    "tiktok": {
+      "name": "TikTok",
+      "needsMedia": true,
+      "text": { "text": { "max": 2200, "unit": "utf16", "verified": true, "source": "https://developers.tiktok.com/doc/content-posting-api-reference-direct-post", "note": "2,200 UTF-16 code units through the Content Posting API; the app may allow more." } },
+      "hashtags": { "max": 5, "hard": false },
+      "links": { "inBody": "not-clickable", "note": "use the bio link." },
+      "video": { "aspect": "9:16", "aspectHard": true, "recommended": "1080x1920", "maxSeconds": 600, "maxBytes": 4000000000, "maxFps": 60, "verified": true, "source": "https://developers.tiktok.com/doc/content-posting-api-media-transfer-guide", "note": "API: MP4, WebM or MOV up to 4 GB; 10-minute ceiling for some creators. In-app uploads may be longer.", "safeArea": { "top": 0.12, "bottom": 0.3, "left": 0.06, "right": 0.16, "note": "UMS working margin. TikTok publishes safe zones as template files without numbers; the right side carries the like, comment and share buttons." } }
+    },
+    "shorts": {
+      "name": "YouTube Shorts",
+      "needsMedia": true,
+      "text": { "title": { "max": 100, "unit": "characters", "verified": true, "source": "https://support.google.com/youtube/answer/57407" }, "text": { "max": 5000, "unit": "characters", "verified": true, "source": "https://support.google.com/youtube/answer/57407" } },
+      "hashtags": { "max": 3, "hard": false, "note": "YouTube shows the first three above the title; more than 60 and all are ignored." },
+      "links": { "inBody": "not-clickable", "note": "Links in Shorts descriptions are not clickable; use a related video link or the channel page." },
+      "video": { "aspect": "9:16", "aspectHard": false, "recommended": "1080x1920", "maxSeconds": 180, "maxFps": 60, "verified": true, "source": "https://support.google.com/youtube/answer/10059070", "note": "Square or vertical, up to 3 minutes.", "safeArea": { "top": 0.12, "bottom": 0.3, "left": 0.06, "right": 0.16, "note": "UMS working margin; YouTube publishes no Shorts overlay safe zone." } }
+    },
+    "youtube": {
+      "name": "YouTube",
+      "needsMedia": true,
+      "text": { "title": { "max": 100, "unit": "characters", "verified": true, "source": "https://support.google.com/youtube/answer/57407" }, "text": { "max": 5000, "unit": "characters", "verified": true, "source": "https://support.google.com/youtube/answer/57407" } },
+      "hashtags": { "max": 3, "hard": false },
+      "links": { "inBody": "fine", "note": "Description links are clickable on long-form videos." },
+      "video": { "aspect": "16:9", "aspectHard": false, "recommended": "1920x1080", "maxSeconds": 43200, "maxFps": 60, "verified": true, "source": "https://support.google.com/youtube/answer/71673", "note": "12 hours for verified accounts, 15 minutes otherwise." }
+    },
+    "reddit": {
+      "name": "Reddit",
+      "text": { "title": { "max": 300, "unit": "characters", "verified": false, "source": "third-party; Reddit help pages returned 403 on 2026-11-25" } },
+      "hashtags": { "max": 0, "hard": false, "note": "Hashtags mean nothing on Reddit and mark a post as an outsider's." },
+      "links": { "inBody": "fine", "note": "Each subreddit sets its own self-promotion rules; read them before posting." }
+    },
+    "pinterest": {
+      "name": "Pinterest",
+      "needsMedia": true,
+      "text": { "title": { "max": 100, "unit": "characters", "verified": true, "source": "https://help.pinterest.com/en/article/review-pin-specs" }, "text": { "max": 800, "unit": "characters", "verified": true, "source": "https://help.pinterest.com/en/article/review-pin-specs" } },
+      "video": { "aspect": "9:16", "aspectHard": false, "recommended": "1080x1920", "minSeconds": 4, "maxSeconds": 300, "maxFps": 60, "verified": true, "source": "https://help.pinterest.com/en/article/review-pin-specs", "safeArea": { "top": 0.1406, "bottom": 0.4115, "left": 0.0602, "right": 0.1806, "note": "Pinterest Pin specs: 270 px top, 790 px bottom, 65 px left, 195 px right, taken here against 1080x1920." } }
+    },
+    "discord": {
+      "name": "Discord",
+      "text": { "text": { "max": 2000, "unit": "characters", "verified": false, "source": "search snippet of support.discord.com; 4,000 with Nitro" } },
+      "links": { "inBody": "fine", "note": "Announcement channels can be followed into other servers." }
+    },
+    "appstore-preview": {
+      "name": "App Store app preview",
+      "needsMedia": true,
+      "video": { "aspect": "886:1920", "aspectHard": true, "recommended": "886x1920", "minSeconds": 15, "maxSeconds": 30, "maxBytes": 500000000, "maxFps": 30, "verified": true, "source": "https://developer.apple.com/help/app-store-connect/reference/app-preview-specifications", "note": "Up to 3 per device size and language; H.264 at 10-12 Mbps; stereo AAC 256 kbps; 1080x1920 for Home Button iPhones." }
+    },
+    "steam-trailer": {
+      "name": "Steam trailer",
+      "needsMedia": true,
+      "video": { "aspect": "16:9", "aspectHard": true, "recommended": "1920x1080", "maxSeconds": 0, "maxFps": 60, "verified": true, "source": "https://partner.steamgames.com/doc/store/trailer", "note": "No length limit stated. Capsules: header 920x430, small 462x174, main 1232x706, vertical 748x896, library 600x900, hero 3840x1240 (partner.steamgames.com/doc/store/assets)." }
+    }
+  }
+}

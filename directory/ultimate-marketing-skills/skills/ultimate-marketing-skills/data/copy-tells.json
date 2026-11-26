@@ -1,0 +1,32 @@
+{
+  "about": "Phrases and habits that make marketing copy read as machine-written or as a press release. Each has the reason it fails and the fix. Errors block approval in the UMS queue; warnings do not. Keep entries specific: a word only lands here when it is filler in almost every marketing sentence it appears in.",
+  "updated": "2026-11-25",
+  "phrases": [
+    { "id": "unlock", "level": "warning", "match": ["unlock your", "unlock the power", "unlock new"], "why": "Nobody says this out loud about an app.", "fix": "Name the thing the person can now do." },
+    { "id": "elevate", "level": "warning", "match": ["elevate your", "take your", "to the next level"], "why": "A promise with no content.", "fix": "Say what changes, with a number or a before and after." },
+    { "id": "seamless", "level": "warning", "match": ["seamless", "seamlessly", "effortless", "effortlessly"], "why": "Every product claims it, so it reads as nothing.", "fix": "Show the step that used to hurt and is now gone." },
+    { "id": "game-changer", "level": "warning", "match": ["game-changer", "game changer", "changes everything", "revolutionize", "revolutionary", "disrupt"], "why": "Hype the reader has learned to skip.", "fix": "State the one specific difference and let them judge."},
+    { "id": "fast-paced", "level": "error", "match": ["in today's fast-paced", "in today's digital", "in the ever-evolving", "ever-evolving landscape", "in a world where"], "why": "The opening line of a thousand generated posts.", "fix": "Open on the person, the problem or the result." },
+    { "id": "delve", "level": "error", "match": ["delve", "tapestry", "testament to", "navigate the complexities", "realm of"], "why": "Words that mark text as machine-written.", "fix": "Use the plain verb." },
+    { "id": "leverage", "level": "warning", "match": ["leverage", "harness the power", "empower", "supercharge", "turbocharge"], "why": "Corporate filler.", "fix": "Use, run, cut, ship, save: the concrete verb." },
+    { "id": "cutting-edge", "level": "warning", "match": ["cutting-edge", "state-of-the-art", "next-gen", "next-level", "best-in-class", "world-class", "innovative solution"], "why": "Self-praise the reader cannot check.", "fix": "Replace with proof: a benchmark, a clip, a customer's words." },
+    { "id": "thrilled", "level": "warning", "match": ["thrilled to announce", "excited to announce", "excited to share", "proud to announce", "we're thrilled"], "why": "The reader cares what it is, not how you feel.", "fix": "Lead with the thing. Feelings can go in the reply." },
+    { "id": "look-no-further", "level": "error", "match": ["look no further", "say goodbye to", "say hello to", "picture this", "imagine a world"], "why": "Infomercial openers.", "fix": "Open with the moment the problem happens." },
+    { "id": "let-that-sink-in", "level": "error", "match": ["let that sink in", "read that again", "here's the thing", "and here's why", "the truth is"], "why": "Engagement-bait cadence that X and LinkedIn readers now scroll past.", "fix": "Cut the line. If the point is strong it does not need the drumroll." },
+    { "id": "journey", "level": "warning", "match": ["journey", "embark", "unleash"], "why": "Abstract and grand where the product is small and real.", "fix": "Describe the actual task." },
+    { "id": "solution", "level": "warning", "match": ["all-in-one solution", "one-stop shop", "comprehensive solution", "robust solution"], "why": "Says nothing about what it does.", "fix": "Name the two or three jobs it does." },
+    { "id": "dive-in", "level": "warning", "match": ["let's dive in", "dive into", "deep dive"], "why": "Filler transition.", "fix": "Start with the first point." },
+    { "id": "in-conclusion", "level": "warning", "match": ["in conclusion", "in summary", "to sum up", "at the end of the day"], "why": "Essay scaffolding in a post.", "fix": "End on the call to action or the strongest line." },
+    { "id": "fake-urgency", "level": "warning", "match": ["act now", "don't miss out", "limited time only", "before it's too late"], "why": "Urgency with no reason given reads as a scam; a false deadline can also be a deceptive practice.", "fix": "Give the real reason and the real date, or drop it." },
+    { "id": "guarantee", "level": "error", "match": ["guaranteed results", "100% guaranteed", "risk-free", "#1 rated", "number one rated", "clinically proven", "doctor recommended"], "why": "A claim that needs substantiation and, for health or money, can break advertising law.", "fix": "Only keep it with a source you can show; otherwise state what you can prove." }
+  ],
+  "patterns": [
+    { "id": "not-x-but-y", "level": "warning", "regex": "\\bnot (just|only|merely) (a |an |the )?[^.,;:]{1,40}[,;:]\\s*(it's|it is|this is|they're|we're|but)\\b", "flags": "iu", "why": "The \"not just X, it's Y\" construction is the most recognised generated-copy pattern.", "fix": "Say Y directly." },
+    { "id": "staccato-triplet", "level": "warning", "regex": "(^|\\n)([A-Z][a-z]+\\.\\s){2,}[A-Z][a-z]+\\.", "flags": "u", "why": "Three one-word sentences in a row (\"Fast. Simple. Yours.\") reads as template copy.", "fix": "One real sentence with a specific." },
+    { "id": "rhetorical-opener", "level": "warning", "regex": "^(ever wondered|have you ever|what if i told you|are you tired of|struggling with)", "flags": "iu", "why": "Question openers that the reader answers \"no\" to and scrolls.", "fix": "Open with the answer." },
+    { "id": "em-dash-pile", "level": "warning", "regex": "—", "flags": "gu", "min": 3, "why": "Three or more em dashes in one post is a strong generated-text signal.", "fix": "Use full stops and commas." },
+    { "id": "hashtag-wall", "level": "warning", "regex": "(#[\\p{L}\\p{N}_]+\\s*){6,}$", "flags": "u", "why": "A wall of hashtags at the end looks like spam and most platforms no longer reward it.", "fix": "Keep three to five that describe the post." },
+    { "id": "all-caps-hype", "level": "warning", "regex": "\\b[A-Z]{5,}\\b(\\s+\\b[A-Z]{4,}\\b){1,}", "flags": "u", "why": "Shouting.", "fix": "Sentence case. Emphasis comes from the claim." },
+    { "id": "placeholder", "level": "error", "regex": "\\[(insert|your|product|name|link|company|todo)[^\\]]*\\]|\\{\\{[^}]+\\}\\}|lorem ipsum", "flags": "iu", "why": "An unfilled template slot.", "fix": "Fill it or cut it." }
+  ]
+}
