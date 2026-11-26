@@ -208,3 +208,14 @@ UFS-parity gaps still open, do in this order:
    skills, video-watch, UFS remotion-video/link-preview/image-deep-research.
 3. Build plugin tree, scripts, tests, directory edition. Two bug passes. Commit locally.
 4. Ask Gev before any public push or directory submission.
+
+## Checkpoint 4 (usage limit reached)
+
+- Push session ums-push (local_52f5a66c) is idle, pushed nothing. Push only when every item below
+  is done; then message it to run its brief.
+- Sales research re-run in background -> research_notes/.../sales.md. If absent or truncated,
+  re-run that one track, then build S2.
+- Field test started: RideLink (C:/rl, Expo app, no README; facts in APPLE_REVIEW.md,
+  app.config.js). Run UMS in a temp workspace outside C:/rl, draft mode only; write
+  docs/field-tests/ridelink.md. Nothing written into C:/rl.
+- Then: adversarial cases (item 1), tests + validate twice, push via ums-push.
