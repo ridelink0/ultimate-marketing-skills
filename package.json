@@ -45,11 +45,13 @@
     "PRIVACY.md",
     "README.md",
     "CHANGELOG.md",
-    "CREDITS.md"
+    "CREDITS.md",
+    "plugins/ultimate-email-skills/"
   ],
   "scripts": {
     "test": "node --test --test-concurrency=1 test/*.test.mjs",
     "build:directory": "node tools/directory-edition.mjs",
-    "ums": "node scripts/ums.mjs"
+    "ums": "node scripts/ums.mjs",
+    "build:email": "node tools/email-plugin.mjs"
   }
 }

@@ -1,12 +1,14 @@
 // Loads the JSON data that ships with the skill. One place, so the paths are
 // right whether the scripts run from a clone, a plugin cache or a test.
 
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-export const SKILL = join(ROOT, 'skills', 'ultimate-marketing-skills');
+// UMS keeps data under skills/ultimate-marketing-skills; the standalone
+// email plugin keeps it under skills/email-marketing.
+export const SKILL = ['ultimate-marketing-skills', 'email-marketing'].map((s) => join(ROOT, 'skills', s)).find((p) => existsSync(join(p, 'data'))) || join(ROOT, 'skills', 'ultimate-marketing-skills');
 export const DATA = join(SKILL, 'data');
 
 const cache = new Map();

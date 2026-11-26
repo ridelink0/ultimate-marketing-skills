@@ -17,6 +17,17 @@
       "source": "./",
       "homepage": "https://github.com/ridelink0/ultimate-marketing-skills",
       "version": "1.0.0"
+    },
+    {
+      "name": "ultimate-email-skills",
+      "description": "Email marketing on its own: sequences written in your voice, every draft checked against CAN-SPAM, PECR, CASL and the Gmail and Yahoo sender rules, styled email HTML with a plain-text part, and Klaviyo, Resend and MailerLite MCP servers for sending after you approve. Also included in ultimate-marketing-skills; install one or the other.",
+      "author": {
+        "name": "Gev"
+      },
+      "category": "marketing",
+      "source": "./plugins/ultimate-email-skills",
+      "homepage": "https://github.com/ridelink0/ultimate-marketing-skills/tree/master/plugins/ultimate-email-skills",
+      "version": "1.0.0"
     }
   ]
 }

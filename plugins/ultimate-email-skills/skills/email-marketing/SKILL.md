@@ -1,0 +1,29 @@
+---
+name: email-marketing
+description: Use when someone wants email marketing - a newsletter, a welcome or onboarding sequence, a launch or game-release email, a trial-ending or win-back email, list growth, an email service choice, deliverability (SPF, DKIM, DMARC, one-click unsubscribe, BIMI, spam folder problems), or a draft turned into email-client HTML with a plain-text part. Writes the drafts, checks them against CAN-SPAM, PECR and CASL and the Gmail and Yahoo sender rules, and builds the HTML; a person approves every send.
+---
+
+# Email marketing
+
+Read `references/email.md`. Part of Ultimate Marketing Skills
+(github.com/ridelink0/ultimate-marketing-skills), packaged on its own.
+
+```bash
+node "${CLAUDE_PLUGIN_ROOT}/scripts/email-cli.mjs" needs
+node "${CLAUDE_PLUGIN_ROOT}/scripts/email-cli.mjs" sequence <welcome|onboarding|launch|game-launch|winback> --name "<product>" --out .ums/email/<type>
+node "${CLAUDE_PLUGIN_ROOT}/scripts/email-cli.mjs" check <draft.md>
+node "${CLAUDE_PLUGIN_ROOT}/scripts/email-cli.mjs" build <draft.md>
+```
+
+- Write every draft in the founder's voice (ask for two or three things they wrote); one job and
+  one button per email. Replace every `[[write: ...]]` line.
+- `check` must pass before a draft is queued. Then queue it:
+  the approval step (the person reads it and says send).
+- Open the built HTML in a browser at phone width and look at it before
+  calling it done.
+- A person approves each send. With Klaviyo, Resend or MailerLite signed in
+  through `/mcp`, Claude may send the approved email through it; otherwise
+  the person pastes the HTML and text into their email service.
+- Judge results by clicks and replies, not opens.
+
+`${CLAUDE_PLUGIN_ROOT}` is empty in Codex: use the folder holding `.codex-plugin/`.

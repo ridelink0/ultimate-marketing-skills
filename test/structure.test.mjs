@@ -110,3 +110,14 @@ test('directory edition is current, script-free, and carries no AI media generat
     if (f.endsWith('.md')) assert.doesNotMatch(readFileSync(f, 'utf8'), /GitHub edition only|text-to-speech|\bVeo\b|\bKling\b|ElevenLabs/i, rel(f));
   }
 });
+
+test('standalone email plugin is current and self-contained', () => {
+  const r = spawnSync(process.execPath, [join(ROOT, 'tools/email-plugin.mjs'), '--check'], { encoding: 'utf8' });
+  assert.equal(r.status, 0, r.stderr);
+  const P = join(ROOT, 'plugins/ultimate-email-skills');
+  for (const f of walk(P).filter((p) => p.endsWith('.md'))) assert.doesNotMatch(readFileSync(f, 'utf8'), /ums\.mjs|\.\.\/ultimate-marketing-skills|ums email /, rel(f));
+  const cli = spawnSync(process.execPath, [join(P, 'scripts/email-cli.mjs'), 'check', join(ROOT, 'examples/email-welcome/welcome.md')], { encoding: 'utf8' });
+  assert.equal(cli.status, 0, cli.stdout + cli.stderr);
+  const market = JSON.parse(readFileSync(join(ROOT, '.claude-plugin/marketplace.json'), 'utf8'));
+  assert.ok(market.plugins.some((p) => p.name === 'ultimate-email-skills' && p.source === './plugins/ultimate-email-skills'));
+});

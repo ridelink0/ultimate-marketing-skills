@@ -107,6 +107,81 @@
       "domain": "landing pages, store pages, link-preview share cards, image deep research, Remotion video, motion, sound",
       "routes": "UMS's sister plugin. Landing pages and free tools are built with UFS; share cards with its link-preview skill; reference images with image-deep-research.",
       "notes": "Same author. Install both; neither disables the other."
+    },
+    {
+      "id": "email-mjml",
+      "name": "MJML email HTML skill (framix-team)",
+      "kind": "skills",
+      "repo": "https://github.com/framix-team/skill-email-html-mjml",
+      "commit": "c756db33010abf1d3e19153c56f78ece7f79cda4",
+      "license": "MIT",
+      "domain": "complex email layouts compiled with MJML (needs the mjml npm package)",
+      "skills": [
+        "skill-email-html-mjml"
+      ],
+      "routes": "Use when a design needs layouts beyond the UMS builder (multi-column product grids); run ums email check on the result."
+    },
+    {
+      "id": "email-design",
+      "name": "Email design archetypes (CosmoBlk)",
+      "kind": "skills",
+      "repo": "https://github.com/CosmoBlk/email-design",
+      "commit": "c56bfe098203dcf2d77b7bf06e6868363e8647d9",
+      "license": "MIT",
+      "domain": "six committed email design archetypes, brand-aware",
+      "skills": [
+        "email-design"
+      ],
+      "routes": "Borrow a layout archetype for a brand-heavy campaign; build it with ums email build."
+    },
+    {
+      "id": "ai-marketing-claude",
+      "name": "AI Marketing Suite (zubair-trabzada)",
+      "kind": "skills",
+      "repo": "https://github.com/zubair-trabzada/ai-marketing-claude",
+      "commit": "e5aa0ea4c5f30d8bc08771e8ea932463e76d3356",
+      "license": "MIT",
+      "domain": "15 marketing skills with parallel subagents: audits and reports",
+      "skills": [
+        "audit skills"
+      ],
+      "routes": "Site and funnel audits run in parallel; UMS turns the findings into the calendar and queue."
+    },
+    {
+      "id": "openclaudia",
+      "name": "OpenClaudia marketing skills",
+      "kind": "skills",
+      "repo": "https://github.com/OpenClaudia/openclaudia-skills",
+      "commit": "03557e315375f709d71eaf59c00094a21292f660",
+      "license": "MIT",
+      "domain": "77 marketing skills (SEO, content, ads, CRO)",
+      "skills": [
+        "pick per job"
+      ],
+      "routes": "Wide coverage for niche jobs UMS does not own; install only the skills a job needs."
+    },
+    {
+      "id": "marketing-os",
+      "name": "Marketing OS (Yuzzyuk)",
+      "kind": "skills",
+      "repo": "https://github.com/Yuzzyuk/marketing-os",
+      "commit": "bb67dff5f04b390e861ee11433166e4519e7f4c0",
+      "license": "MIT",
+      "domain": "one skill, 14 modules, audits scored 0-100",
+      "skills": [
+        "marketing-os"
+      ],
+      "routes": "A scored audit before a campaign; UMS acts on the lowest scores first."
+    },
+    {
+      "id": "postiz",
+      "name": "Postiz (self-hosted scheduler)",
+      "kind": "tool",
+      "repo": "https://github.com/gitroomhq/postiz-app",
+      "commit": "44df988cb1840dc5eb50755536b3e6e326d27fc3",
+      "license": "AGPL-3.0",
+      "domain": "self-hosted scheduling to 14 platforms, with an MCP server",
+      "routes": "Hand approved queue items to a self-hosted Postiz for platforms without a UMS API route. AGPL: run it as a separate service; do not copy its code into UMS."
     }
   ],
   "mcp": [

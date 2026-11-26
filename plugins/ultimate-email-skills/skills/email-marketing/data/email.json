@@ -1,0 +1,223 @@
+{
+  "about": "Email rules UMS checks drafts against, and the sequences it scaffolds. Rules marked practice are working thresholds, not platform limits; see references/email.md for sources.",
+  "checked": "2026-11-26",
+  "rules": {
+    "subjectWarnAt": 50,
+    "preheaderMax": 110,
+    "linksWarnAt": 5,
+    "minWordsPerImage": 40,
+    "clipBytes": 102000,
+    "notes": {
+      "subjectWarnAt": "practice: phone inboxes show roughly the first 30-50 characters",
+      "clipBytes": "Gmail clips messages larger than about 102 KB",
+      "linksWarnAt": "practice"
+    }
+  },
+  "sequences": {
+    "welcome": {
+      "name": "Welcome",
+      "why": "The emails people open most are the first ones after they sign up; use them to deliver what was promised and ask for one action.",
+      "emails": [
+        {
+          "id": "deliver",
+          "when": "immediately",
+          "subject": "what they signed up for, delivered",
+          "job": "deliver exactly what the signup promised for {name}, say what comes next and how often",
+          "cta": "the one thing to do first"
+        },
+        {
+          "id": "story",
+          "when": "day 2",
+          "subject": "why {name} exists, in one line",
+          "job": "the founder in their own voice: the problem that started {name}, one real detail",
+          "cta": "reply with what they are trying to do"
+        },
+        {
+          "id": "proof",
+          "when": "day 5",
+          "subject": "a result someone got",
+          "job": "one real result with permission, or a short how-to that gets the reader the same result",
+          "cta": "try it"
+        }
+      ]
+    },
+    "onboarding": {
+      "name": "Onboarding and trial",
+      "why": "Activation, not information: each email moves a new user one step toward the moment the product proves itself.",
+      "emails": [
+        {
+          "id": "first-step",
+          "when": "immediately",
+          "subject": "the first step, in one sentence",
+          "job": "the single action that gets a new {name} user to the first result",
+          "cta": "do the first step"
+        },
+        {
+          "id": "stuck",
+          "when": "day 1, only if the first step is not done",
+          "subject": "the most common place people get stuck",
+          "job": "the snag most new users hit and how to get past it",
+          "cta": "finish setup"
+        },
+        {
+          "id": "second-win",
+          "when": "day 3",
+          "subject": "the second thing worth doing",
+          "job": "the feature that makes {name} stick, shown in one example",
+          "cta": "try the feature"
+        },
+        {
+          "id": "trial-ending",
+          "when": "2 days before a trial ends",
+          "subject": "trial ends on a date, plainly",
+          "job": "what they keep, what stops, the price, and how to cancel",
+          "cta": "choose a plan"
+        }
+      ]
+    },
+    "launch": {
+      "name": "Launch",
+      "why": "A list that hears first converts first; three to four emails around the date, each with one job.",
+      "emails": [
+        {
+          "id": "coming",
+          "when": "7 days before",
+          "subject": "the date and what is launching",
+          "job": "what {name} is launching, the date, and the one reason it matters to this reader",
+          "cta": "add it to the calendar or wishlist"
+        },
+        {
+          "id": "tomorrow",
+          "when": "1 day before",
+          "subject": "tomorrow",
+          "job": "a short reminder with one new detail (a clip, a price, a time)",
+          "cta": "set a reminder"
+        },
+        {
+          "id": "live",
+          "when": "launch day",
+          "subject": "it is live",
+          "job": "it is out, where to get it, the launch offer if there is one and when it really ends",
+          "cta": "get it"
+        },
+        {
+          "id": "last-call",
+          "when": "2 days after, only if there is a real deadline",
+          "subject": "the real deadline",
+          "job": "the actual end of a real offer; skip this email if there is none",
+          "cta": "get it before the deadline"
+        }
+      ]
+    },
+    "game-launch": {
+      "name": "Game launch (Steam)",
+      "why": "Wishlists notify on launch, but your own list is the one channel you control.",
+      "emails": [
+        {
+          "id": "demo",
+          "when": "Next Fest week",
+          "subject": "the demo is playable",
+          "job": "the demo for {name} is live during the festival; one clip, how long it takes to play",
+          "cta": "play the demo"
+        },
+        {
+          "id": "date",
+          "when": "14 days before release",
+          "subject": "release date",
+          "job": "the release date, price and launch discount if any",
+          "cta": "wishlist on Steam"
+        },
+        {
+          "id": "out",
+          "when": "release day",
+          "subject": "it is out",
+          "job": "{name} is out; the launch discount and its real end date",
+          "cta": "buy on Steam"
+        }
+      ]
+    },
+    "winback": {
+      "name": "Win-back and sunset",
+      "why": "Quiet subscribers hurt deliverability; ask once or twice, then remove the ones who stay quiet.",
+      "emails": [
+        {
+          "id": "still-want",
+          "when": "after 90 days without a click",
+          "subject": "still want these",
+          "job": "ask plainly whether they still want emails from {name}, with what they will get",
+          "cta": "keep me on the list"
+        },
+        {
+          "id": "best-of",
+          "when": "7 days later",
+          "subject": "the best thing we sent",
+          "job": "one genuinely useful thing from the archive",
+          "cta": "read it"
+        },
+        {
+          "id": "goodbye",
+          "when": "14 days later",
+          "subject": "removing you, unless",
+          "job": "say they will be removed in a few days unless they click; then remove them (sunset)",
+          "cta": "stay subscribed"
+        }
+      ]
+    }
+  },
+  "themes": {
+    "clean": {
+      "paper": "#ffffff",
+      "surface": "#f3f4f6",
+      "ink": "#1a1a1a",
+      "muted": "#5f6368",
+      "accent": "#0b57d0",
+      "buttonText": "#ffffff",
+      "rule": "#e3e5e8",
+      "font": "Helvetica, Arial, sans-serif",
+      "headFont": "Helvetica, Arial, sans-serif",
+      "headWeight": "bold",
+      "radius": 6,
+      "dark": {
+        "paper": "#121212",
+        "surface": "#1e1e1e",
+        "ink": "#f1f1f1",
+        "muted": "#a8acb1",
+        "accent": "#8ab4f8"
+      }
+    },
+    "editorial": {
+      "paper": "#f6f1e8",
+      "surface": "#ece4d6",
+      "ink": "#1c1915",
+      "muted": "#6b6258",
+      "accent": "#9a3f1c",
+      "buttonText": "#ffffff",
+      "rule": "#d8cdbb",
+      "font": "Helvetica, Arial, sans-serif",
+      "headFont": "Georgia, 'Times New Roman', serif",
+      "headWeight": "normal",
+      "radius": 2,
+      "dark": {
+        "paper": "#171410",
+        "surface": "#221e18",
+        "ink": "#efe8dc",
+        "muted": "#a99f90",
+        "accent": "#e08a5f"
+      }
+    },
+    "night": {
+      "paper": "#0c0a03",
+      "surface": "#15120a",
+      "ink": "#f2ede4",
+      "muted": "#a39b88",
+      "accent": "#d4af37",
+      "buttonText": "#0c0a03",
+      "rule": "#3a3220",
+      "font": "Helvetica, Arial, sans-serif",
+      "headFont": "Georgia, 'Times New Roman', serif",
+      "headWeight": "normal",
+      "radius": 6,
+      "dark": null
+    }
+  }
+}

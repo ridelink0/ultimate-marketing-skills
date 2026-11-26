@@ -1,0 +1,30 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "ultimate-email-skills",
+  "version": "1.0.0",
+  "description": "Ultimate Email Skills: email marketing for Claude Code and Codex. Writes welcome, onboarding, launch, game-launch and win-back sequences in the founder's voice; checks every draft against CAN-SPAM, PECR and CASL and the Gmail and Yahoo sender rules; builds styled email HTML (three themes, logo, hero image, cards, image-beside-text sections, dark mode) with a plain-text part; and ships Klaviyo, Resend and MailerLite MCP servers for sending after a person approves. Part of Ultimate Marketing Skills, also installable on its own.",
+  "author": {
+    "name": "Gev",
+    "url": "https://github.com/ridelink0"
+  },
+  "homepage": "https://github.com/ridelink0/ultimate-marketing-skills/tree/master/plugins/ultimate-email-skills",
+  "repository": "https://github.com/ridelink0/ultimate-marketing-skills",
+  "license": "MIT",
+  "keywords": [
+    "email marketing",
+    "newsletter",
+    "email sequence",
+    "welcome email",
+    "onboarding email",
+    "launch email",
+    "deliverability",
+    "dmarc",
+    "can-spam",
+    "email html",
+    "dark mode email",
+    "klaviyo",
+    "resend",
+    "mailerlite"
+  ],
+  "privacyPolicyUrl": "https://github.com/ridelink0/ultimate-marketing-skills/blob/master/plugins/ultimate-email-skills/PRIVACY.md"
+}
