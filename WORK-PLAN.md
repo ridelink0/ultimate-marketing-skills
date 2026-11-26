@@ -87,6 +87,29 @@ structure: no emoji, manifests, commands, skills, refs, node --check, hook, secr
 edition), tools/directory-edition.mjs. Last test+commit run was backgrounded; confirm it committed
 ("Tests (policy, queue ..." in git log) and that the suite still passes (should be 35 tests).
 
+Since checkpoint 3: pass-2 fixes committed dd7dc03 (X bare-domain counting, audio-only video check;
+40/40 tests), skill folders marketing-video, marketing-visual-research, social-autopilot,
+launch-playbook committed 303bf8f (validate passes).
+
+NEW SCOPE (Gev, 2026-11-25): "include sales to it too since thats close to marketing". Do FIRST
+after reset:
+S1. One deep-research track (sonnet), notes to research_notes/Ultimate Marketing Skills research/
+    sales.md, then append a sales section to the report: founder-led sales 2026 (ICP, discovery
+    calls, demos, follow-up, pipeline stages, pricing pages, trials vs demos), outbound rules
+    (CAN-SPAM; GDPR/PECR consent for B2B email in EU/UK; Google and Yahoo bulk-sender rules: SPF,
+    DKIM, DMARC, one-click unsubscribe, spam-rate threshold - verify on support.google.com and
+    senders.yahooinc.com), LinkedIn outreach limits and its automation ban, AI SDR tools and what
+    evidence exists, sales MCP servers (HubSpot, Salesforce, Apollo, Clay?) with licences, how
+    indie/SaaS founders close first customers (named cases), sales for games/apps (B2B2C,
+    publishers, bundles) where relevant. Verify key claims in a second pass like marketing.
+S2. Build: skills/sales-playbook/SKILL.md + references/sales.md; data/sales.json (stages,
+    discovery questions, objection patterns, email rules with sources); policy: outreach_email,
+    dm stay per-item and never batchable (already true) - add tests that sales sends are never
+    autonomous; commands/sell.md (pipeline + outreach drafts + call prep) and add to README table;
+    scripts: `ums pipeline add|list|move|next` (.ums/pipeline.json, no network) with tests; copy
+    tells for sales email (fake "Re:" subjects, false familiarity, fake urgency); advise types get a
+    sales rung where the project sells B2B (saas, devtool). README + CHANGELOG + directory edition.
+
 UFS-parity gaps still open, do in this order:
 1. Bug pass 2 (adversarial): Windows paths with spaces/quotes in storyboard media; fontFile family;
    SRT with BOM/CRLF; words.json shapes; queue concurrent ids; run with item.at in future; X weighted
