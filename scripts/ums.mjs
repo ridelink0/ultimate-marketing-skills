@@ -18,6 +18,12 @@ Workspace and autonomy
   queue reject <id> [--reason r]                queue done <id> --url <posted url>
   run [--dry-run] [--now ISO]                   publish due, approved, allowed items
 
+Sales
+  pipeline add --name <n> [--company c] [--value v] [--next "<action>" --due YYYY-MM-DD]
+  pipeline move <id> <lead|contacted|replied|call|trial|proposal|won|lost> [--next a --due d] [--note t]
+  pipeline next [--today YYYY-MM-DD]          due follow-ups, then deals with no next step
+  pipeline note <id> --text <t>               pipeline list
+
 Copy
   tells <file> | --text <t>                     AI-sounding copy audit
   check --platform <p> <file> | --text <t>      length, hashtags, links, tells
@@ -64,6 +70,7 @@ async function main() {
   }
 
   if (cmd === 'queue') return queueCmd();
+  if (cmd === 'pipeline') return pipelineCmd();
   if (cmd === 'run') return runCmd();
 
   if (cmd === 'tells') {
@@ -177,6 +184,31 @@ async function queueCmd() {
     return print(q.markPosted(ws, rest[0] || fail('done needs an id'), String(args.url)), `marked ${rest[0]} posted`);
   }
   fail('queue needs add, list, show, approve, reject or done');
+}
+
+async function pipelineCmd() {
+  const { workspace } = await import('./queue.mjs');
+  const p = await import('./pipeline.mjs');
+  const ws = workspace(args.dir);
+  if (sub === 'add') {
+    const d = p.addDeal(ws, { name: args.name, company: args.company || '', value: args.value, source: args.source || '', next: args.next || '', due: args.due || '' });
+    return print(d, `added ${d.id} ${d.name} (lead)`);
+  }
+  if (sub === 'move') {
+    const d = p.moveDeal(ws, rest[0] || fail('move needs an id'), rest[1] || fail('move needs a stage'), { next: args.next || '', due: args.due || '', note: args.note || '' });
+    return print(d, `${d.id} ${d.name} -> ${d.stage}`);
+  }
+  if (sub === 'note') return print(p.noteDeal(ws, rest[0] || fail('note needs an id'), args.text || fail('note needs --text')), 'noted');
+  if (sub === 'next') {
+    const r = p.due(ws, args.today);
+    const lines = [...r.dated.map((d) => `${d.next.due}  ${d.id} ${d.name} (${d.stage}): ${d.next.action}`), ...r.stuck.map((d) => `no next step  ${d.id} ${d.name} (${d.stage})`)];
+    return print(r, lines.length ? lines.join('\n') : 'nothing due');
+  }
+  if (sub === 'list' || !sub) {
+    const s = p.summary(ws);
+    return print(s, s.map((x) => `${x.stage.padEnd(9)} ${String(x.count).padStart(3)}  ${x.value}`).join('\n'));
+  }
+  fail('pipeline needs add, move, note, next or list');
 }
 
 async function runCmd() {
