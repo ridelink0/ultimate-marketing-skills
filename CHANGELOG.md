@@ -18,4 +18,11 @@ First release.
 - Copy audit for AI-sounding phrases, plus platform checks for length,
   hashtags, links and missing disclosures.
 - Official ad-library links, pinned integrations and MCP servers, doctor.
-- Eleven slash commands; a directory edition with markdown and JSON only.
+- Sales: a local pipeline (ums pipeline), outreach rules (CAN-SPAM, UK PECR, Gmail, Yahoo
+  and Outlook sender requirements, LinkedIn automation ban), sales copy tells, a
+  founder-led sales rung for SaaS and developer tools, the sales-playbook skill.
+- Thirteen official MCP servers ship with the plugin (HubSpot, Attio, Close, Apollo,
+  Buffer, Canva, Figma, Ahrefs, Similarweb, Klaviyo, Amplitude, Supermetrics, Notion);
+  ums needs lists what each job needs, in setup order.
+- Field-tested in draft mode on RideLink (docs/field-tests/ridelink.md).
+- Twelve slash commands, six skills; a directory edition with markdown and JSON only.

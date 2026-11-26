@@ -97,3 +97,14 @@ test('regression (field test): fit contain keeps a square image whole instead of
   const px = r.stdout;
   assert.ok(px[0] < 40 && px[1] < 40, `top band should be padding, got rgb(${px[0]},${px[1]},${px[2]})`);
 });
+
+test('pass 2: exporting a clip with no audio adds a silent track', { skip: !ff && 'ffmpeg not installed' }, () => {
+  const dir = mkdtempSync(join(tmpdir(), 'ums-v-'));
+  const src = join(dir, 'mute.mp4');
+  spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-f', 'lavfi', '-i', 'testsrc2=s=1280x720:r=30:d=2', '-an', '-pix_fmt', 'yuv420p', '-y', src]);
+  const r = exportFor(src, 'reels', join(dir, 'r.mp4'));
+  const c = check(r.out, 'reels');
+  assert.ok(c.info.acodec, 'has audio');
+  assert.equal(c.info.width, 1080);
+  assert.ok(Math.abs(c.info.duration - 2) < 0.1, `duration ${c.info.duration}`);
+});

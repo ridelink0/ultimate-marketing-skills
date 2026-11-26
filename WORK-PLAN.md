@@ -219,3 +219,10 @@ UFS-parity gaps still open, do in this order:
   app.config.js). Run UMS in a temp workspace outside C:/rl, draft mode only; write
   docs/field-tests/ridelink.md. Nothing written into C:/rl.
 - Then: adversarial cases (item 1), tests + validate twice, push via ums-push.
+
+## Checkpoint 5 (2026-11-26): build complete
+
+Sales module, bundled MCP servers + ums needs, field test (repo D:/ums-field-ridelink, 28e85a0),
+regressions from it, 50/50 tests twice, validate root + directory edition twice. Next: push via
+session ums-push (Gev approved pushing once done): UMS public repo, field-test repo private,
+UFS gev/directory-refresh PR.

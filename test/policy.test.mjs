@@ -104,3 +104,13 @@ test('a failed publish is recorded as failed, not posted', async () => {
   assert.equal(r[0].outcome, 'failed');
   assert.equal(getItem(ws, a.id).status, 'failed');
 });
+
+test('pass 2: an approved item scheduled in the future waits, and is not published early', async () => {
+  const ws = init(mkdtempSync(join(tmpdir(), 'ums-q-')), { mode: 'supervised' });
+  const a = addItem(ws, { platform: 'x', text: 'Later post.', at: '2030-01-01T00:00:00Z' });
+  approve(ws, { id: a.id, tty: true });
+  let called = false;
+  const r = await runDue(ws, { now: new Date('2029-12-31T23:59:00Z'), publish: async () => { called = true; return {}; } });
+  assert.equal(r[0].outcome, 'waiting');
+  assert.equal(called, false);
+});
