@@ -54,7 +54,53 @@ Report: C:/Users/OWNER/reports/Ultimate Marketing Skills research.md
   integrations.json, scripts/ums.mjs CLI, advise/doctor/adlib/packs, skills, commands, docs, tests,
   directory edition, hooks.
 
-## Next, in order
+## Checkpoint 2 (2026-11-25 late, window about 77%)
+
+- ALL research done. Report: C:/Users/OWNER/reports/Ultimate Marketing Skills research.md (uses the
+  verification-pass corrections). Notes: 12 files in research_notes/Ultimate Marketing Skills research/.
+- Commit c52c9d9: core scripts + data (platforms, playbooks, copy-tells, integrations with pinned SHAs).
+  Smoke-tested: video build/check/sheet (1080x1920, -14.0 LUFS, sheet inspected), advise, tells,
+  check, queue add/approve (non-TTY refusal works), run --dry-run, packs, doctor.
+- Written after commit: skills/ultimate-marketing-skills/SKILL.md, references/autonomy.md.
+- OPEN RISK: report says Anthropic's Software Directory Policy may exclude AI image/video/audio
+  generation, ads/sponsored content and autonomous money movement. Read the live policy page
+  (claude.com/docs/plugins or support.claude.com directory policy) BEFORE building the directory
+  edition; UMS's video is ffmpeg rendering, not AI generation, but say exactly what the page says.
+
+RESOLVED 2026-11-25 (live page read in the browser pane): support.claude.com/en/articles/13145358
+section 4 excludes (B) "Software that uses AI models to generate images, video, or audio content"
+incl. text-to-video, AI video editing, TTS, music models (design-only image aids allowed), and
+(C) "Software that serves advertisements, sponsored content, paid product placements, or exists
+primarily as an advertising or promotional vehicle"; (A) autonomous money movement without a human.
+Also: no hidden instructions, no dynamically pulled instructions, privacy link if remote service,
+README needs 3+ working example prompts. => Directory edition: no AI video/TTS/image-gen guidance,
+no fal/Veo/ElevenLabs routes; ffmpeg rendering, filming, captions from SRT are fine. Full GitHub
+edition keeps AI-generation notes with disclosure rules.
+
+## Remaining work, in order
+
+1. references/: platforms.md, video.md (storyboard schema: size|platform, fps, background, font,
+   fontFile, voiceover, music, musicVolume, captions .srt|words.json, captionWords, loudness,
+   style{color,outline,titleSize,captionSize,captionLift}, scenes[{duration,text,caption,align top,
+   background,image,zoom,video,start}]), visual-research.md, copy.md, chrome.md, compliance.md,
+   search.md, measure.md, claude.md, mcp.md, research.md. Use the report for facts; cite sources.
+2. Extra skills (thin SKILL.md routers): marketing-video, marketing-visual-research, social-autopilot,
+   launch-playbook. commands/*.md: market, advise, video, visual-research, autopilot, queue, launch,
+   copy-check, specs, doctor, packs (description + argument-hint; no $ARGUMENTS, no {{ }}, no
+   leading at-sign words, under 4000 bytes).
+3. Manifests: .claude-plugin/plugin.json (+icon), marketplace.json, .codex-plugin/plugin.json,
+   package.json (zero deps, Node 22, bin ums), hooks/hooks.json + hooks/nudge.mjs (marketing keyword
+   gate), .gitattributes (eol=lf).
+4. README.md (UFS style, many Claude references, autonomous vs assisted clearly), AGENTS.md,
+   PRIVACY.md, CREDITS.md, CHANGELOG.md, LICENSE (MIT, Gev).
+5. test/*.test.mjs: policy, queue, checks, tells, video (ffmpeg, skip if absent), post (stub server
+   for X OAuth and Bluesky facets), commands frontmatter, manifests, no-emoji sweep, directory edition.
+6. tools/directory-edition.mjs -> directory/ultimate-marketing-skills (markdown+JSON only).
+   Run `claude plugin validate` on root and directory edition.
+7. Bug pass 1 (functional: npm test, real renders opened) then pass 2 (adversarial). Commit.
+8. Ask Gev before creating the GitHub repo / pushing / directory submission.
+
+## Next, in order (original)
 
 1. Research round (8 topics) then report, then a second verification pass on key claims.
 2. Audit local marketing skills: marketing:* (Anthropic knowledge-work), ecc marketing/social/video
