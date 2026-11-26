@@ -300,11 +300,11 @@ export function build(storyboardFile, outFile, { keep = false, dryRun = false } 
     writeFileSync(join(work, 'list.txt'), segs.map((s) => `file '${s.out}'`).join('\n') + '\n');
     const style = { ...(sb.style || {}), font: sb.font || sb.style?.font };
     writeFileSync(join(work, 'text.ass'), buildAss({ w: sb.w, h: sb.h, scenes: sb.scenes, cues, style }));
-    let assFilter = 'ass=text.ass';
+    let assFilter = 'ass=filename=text.ass';
     if (sb.fontFile) {
       mkdirSync(join(work, 'fonts'), { recursive: true });
       copyFileSync(sb.fontFile, join(work, 'fonts', basename(sb.fontFile)));
-      assFilter = 'ass=text.ass:fontsdir=fonts';
+      assFilter = 'ass=filename=text.ass:fontsdir=fonts';
     }
     const concatArgs = ['-hide_banner', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', 'list.txt', '-c', 'copy', '-y', 'joined.mp4'];
     plan.push(['ffmpeg', ...concatArgs]);
