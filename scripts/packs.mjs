@@ -15,6 +15,7 @@ export function listPacks({ only } = {}) {
 }
 
 function installFor(p) {
+  if (p.install) return p.install;
   const short = p.commit.slice(0, 12);
   if (p.id === 'ultimate-frontend-skills') return 'claude plugin marketplace add ridelink0/ultimate-frontend-skills && claude plugin install ultimate-frontend-skills@ultimate-frontend-skills';
   if (p.id === 'anthropic-marketing') return 'claude plugin marketplace add anthropics/knowledge-work-plugins && claude plugin install marketing@knowledge-work-plugins';

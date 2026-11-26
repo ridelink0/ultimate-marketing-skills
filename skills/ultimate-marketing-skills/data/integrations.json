@@ -1,6 +1,6 @@
 {
   "about": "Third-party skills, plugins and MCP servers UMS works with. Each is pinned to the commit read on the date given, with its licence. UMS does not vendor any of them: it routes to them when they are installed and prints the exact install command when they are not. A person runs the install; UMS never installs, enables or disables another plugin by itself.",
-  "checked": "2026-11-25",
+  "checked": "2026-11-26",
   "packs": [
     {
       "id": "marketingskills",
@@ -182,6 +182,83 @@
       "license": "AGPL-3.0",
       "domain": "self-hosted scheduling to 14 platforms, with an MCP server",
       "routes": "Hand approved queue items to a self-hosted Postiz for platforms without a UMS API route. AGPL: run it as a separate service; do not copy its code into UMS."
+    },
+    {
+      "id": "canva-plugin",
+      "name": "Canva plugin (official)",
+      "kind": "plugin",
+      "repo": "https://github.com/canva-sdks/canva-skills",
+      "commit": "f39156ad3fb2f6e1536d45caa23e6784178d6744",
+      "license": "Apache-2.0",
+      "domain": "Canva skills on top of the Canva MCP server: on-brand designs, resizes, exports",
+      "install": "/plugin marketplace add canva-sdks/canva-skills then /plugin install canva@canva-skills",
+      "routes": "Prefer this over the bare Canva server for carousels, thumbnails and ad sizes; it does not publish to social."
+    },
+    {
+      "id": "figma-plugin",
+      "name": "Figma plugin (official)",
+      "kind": "plugin",
+      "repo": "https://github.com/figma/mcp-server-guide",
+      "commit": "5e4790847aedd4312fff65a11f7695c9c9382be0",
+      "license": "no licence file; Figma Developer Terms apply",
+      "domain": "Figma skills and MCP server for design-system work",
+      "install": "claude plugin install figma@claude-plugins-official",
+      "routes": "Ad and thumbnail variants from a design system. Route to it; do not copy its skills."
+    },
+    {
+      "id": "supermetrics-plugin",
+      "name": "Supermetrics marketing plugin (official)",
+      "kind": "plugin",
+      "repo": "https://github.com/supermetrics-public/claude-marketing-plugin",
+      "commit": "937381163bd9204ce686c94d30e2aa89f8c5c37f",
+      "license": "MIT",
+      "domain": "21 skills over ad and social data; reports read-only, writes need approval, new campaigns created paused",
+      "install": "/plugin marketplace add supermetrics-public/claude-marketing-plugin",
+      "routes": "The weekly results report (references/measure.md) pulls from it when installed."
+    },
+    {
+      "id": "amplitude-plugin",
+      "name": "Amplitude plugin (official)",
+      "kind": "plugin",
+      "repo": "https://github.com/amplitude/mcp-marketplace",
+      "commit": "86ac8bd403e11080b2a3c555d7475b449f9e4a29",
+      "license": "MIT",
+      "domain": "28 skills for product analytics: activation, retention, funnels",
+      "install": "/plugin marketplace add amplitude/mcp-marketplace",
+      "routes": "Use for what happens after the click (activation, retention) in the weekly report."
+    },
+    {
+      "id": "resend-skills",
+      "name": "Resend skills (official)",
+      "kind": "plugin",
+      "repo": "https://github.com/resend/resend-skills",
+      "commit": "063246e39987faebc2608f968ca13a02d994a0d4",
+      "license": "MIT",
+      "domain": "five skills for sending and managing email through Resend",
+      "install": "/plugin marketplace add resend/resend-skills",
+      "routes": "Send approved emails built with ums email build; UMS checks first."
+    },
+    {
+      "id": "notion-plugin",
+      "name": "Notion plugin (official)",
+      "kind": "plugin",
+      "repo": "https://github.com/makenotion/claude-code-notion-plugin",
+      "commit": "016c74ffc568920a385186fb9d2d9d2801e0be09",
+      "license": "no licence stated",
+      "domain": "12 skills including campaign planning in Notion",
+      "install": "/plugin marketplace add makenotion/claude-code-notion-plugin",
+      "routes": "Write the calendar and briefs where the team already plans."
+    },
+    {
+      "id": "apollo-plugin",
+      "name": "Apollo plugin (official)",
+      "kind": "plugin",
+      "repo": "https://github.com/apolloio/apollo-mcp-plugin",
+      "commit": "2fee9ace16c40bc2ff96214c1a68777fe73b3826",
+      "license": "MIT",
+      "domain": "prospect, enrich lead, load sequence (previews before bulk add), analytics",
+      "install": "claude plugin install apollo@claude-plugins-official",
+      "routes": "Finding prospects for the sales playbook. Never let it load or send sequences without the person approving each message batch; it spends Apollo credits."
     }
   ],
   "mcp": [
@@ -337,6 +414,22 @@
       "access": "subscribers, groups, campaigns, automations",
       "use": "small-team newsletters and automations",
       "docs": "https://developers.mailerlite.com/mcp"
+    },
+    {
+      "id": "meta-ads",
+      "name": "Meta ads MCP (official)",
+      "url": "https://mcp.facebook.com/ads",
+      "official": true,
+      "access": "ads accounts: read and write; no organic posting",
+      "use": "reading ad results; any spend change is a paid_spend item a person approves"
+    },
+    {
+      "id": "tiktok-ads-layered",
+      "name": "TikTok for Business MCP (official)",
+      "official": true,
+      "access": "ads only, about 40 core tools in the layered server",
+      "use": "ad account data; organic posting is not part of it",
+      "docs": "https://ads.tiktok.com/resources/help/article/about-tiktok-for-business-mcp-server"
     }
   ],
   "mcpTooling": [

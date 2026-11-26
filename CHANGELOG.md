@@ -27,6 +27,10 @@ First release.
 - Email builder version 2: themes (clean, editorial, night), logo header, hero image,
   cards, image-beside-text sections that stack on phones, dividers, dark-mode colours,
   Outlook width fix; checks for hero and section alt text and unhosted images.
+- Vendor plugins: Canva, Figma, Supermetrics, Amplitude, Resend, Notion and Apollo pinned
+  as packs with install lines; ums tools detects them and routes jobs to them; Meta and
+  TikTok ads servers listed (ads only, spend approved by a person); mcp.md says which
+  platform servers can post and which cannot.
 - references/new-era.md: how marketing works now, ten sourced principles and what to drop
   from the old playbook; every skill plans by it.
 - ums tools, the bench (as in Ultimate Frontend Skills): detects installed plugins, skills
