@@ -77,7 +77,38 @@ README needs 3+ working example prompts. => Directory edition: no AI video/TTS/i
 no fal/Veo/ElevenLabs routes; ffmpeg rendering, filming, captions from SRT are fine. Full GitHub
 edition keeps AI-generation notes with disclosure rules.
 
-## Remaining work, in order
+## Checkpoint 3 (window about 87%) - Gev: "make sure UMS is at UFS quality, thats the standard"
+
+Done and committed through the tests commit: core scripts, data, SKILL.md, 12 references, 11 commands,
+manifests (claude plugin validate passes on root AND directory edition), hook, README/AGENTS/PRIVACY/
+CREDITS/CHANGELOG/LICENSE/icon, tests (30 passed on first full run: policy, queue, checks, tells,
+advisor, data, adlib, X OAuth + Bluesky against local stub, ffmpeg renders incl. loudness and trim,
+structure: no emoji, manifests, commands, skills, refs, node --check, hook, secrets, directory
+edition), tools/directory-edition.mjs. Last test+commit run was backgrounded; confirm it committed
+("Tests (policy, queue ..." in git log) and that the suite still passes (should be 35 tests).
+
+UFS-parity gaps still open, do in this order:
+1. Bug pass 2 (adversarial): Windows paths with spaces/quotes in storyboard media; fontFile family;
+   SRT with BOM/CRLF; words.json shapes; queue concurrent ids; run with item.at in future; X weighted
+   count for URLs without scheme; Bluesky facet for URL ending in punctuation; hook on huge stdin;
+   advise hours=0; specs on platform without text; export of video without audio; check on
+   audio-only file. Add a regression test for each real bug found.
+2. Link check: HEAD/GET every source URL in data/*.json and references (record dead ones, never
+   mark verified if page no longer says it).
+3. examples/: a real worked example (e.g. examples/launch-video/ storyboard.json + generated media
+   from ffmpeg lavfi + BUILD-NOTES.md) rendered and its contact sheet opened; plus a draft-mode
+   field test on one of Gev's real projects (RideLink or Atlias site) writing .ums/ outputs only,
+   nothing published; record in docs/field-tests/.
+4. More skill folders like UFS (thin routers, each with its own frontmatter trigger): marketing-video,
+   marketing-visual-research, social-autopilot, launch-playbook. Keep descriptions <= 1024.
+5. .github/workflows/test.yml (ubuntu/windows/macos, Node 22, install ffmpeg) like UFS regression.yml.
+6. Codex: hooks/codex-hooks.json like UFS if Codex supports UserPromptSubmit; scripts/install.mjs
+   registering with both CLIs (UFS has one).
+7. docs/: research summary pointer, audit receipts (pass-1/pass-2 logs) like UFS docs/audit-*.
+8. Final: npm test twice, claude plugin validate twice, commit. Then ASK Gev before creating
+   github.com/ridelink0/ultimate-marketing-skills, pushing, or submitting to the directory.
+
+## Remaining work, in order (older list)
 
 1. references/: platforms.md, video.md (storyboard schema: size|platform, fps, background, font,
    fontFile, voiceover, music, musicVolume, captions .srt|words.json, captionWords, loudness,

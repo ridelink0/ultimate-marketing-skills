@@ -11,6 +11,10 @@ test('X weighting: Latin 1, CJK and emoji 2, URL 23', () => {
   assert.equal(xWeightedLength('日本'), 4);
   assert.equal(xWeightedLength('see https://example.com/a/very/long/path?x=1'), 4 + 23);
   assert.equal(xWeightedLength('a'.repeat(280)), 280);
+  // Regression (pass 2): bare domains are links on X too.
+  assert.equal(xWeightedLength('play at mygame.gg/demo now'), 'play at '.length + 23 + ' now'.length);
+  assert.equal(xWeightedLength('(see example.com).'), '(see '.length + 23 + ').'.length);
+  assert.equal(xWeightedLength('version 2.0 is out'), 18, 'a version number is not a domain');
 });
 
 test('Bluesky counts graphemes', () => {

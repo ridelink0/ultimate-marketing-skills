@@ -81,6 +81,10 @@ export function check(file, platform) {
   const info = probe(file);
   const out = [];
   const add = (level, code, message) => out.push({ level, code, message });
+  if (!info.width || !info.height) {
+    add('error', 'no-video', 'no video stream in this file');
+    return { info, platform, findings: out, ok: false };
+  }
   const ratio = info.width / info.height;
   const [aw, ah] = spec.aspect.split(':').map(Number);
   if (Math.abs(ratio - aw / ah) > 0.02) add(spec.aspectHard ? 'error' : 'warning', 'aspect', `${info.width}x${info.height} is not ${spec.aspect}`);

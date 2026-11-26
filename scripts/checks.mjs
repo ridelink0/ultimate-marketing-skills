@@ -14,11 +14,17 @@ const DISCLOSURE_RE = /(^|\s)(#ad|#sponsored|#paidpartnership|ad:|sponsored|paid
 // every URL as 23, against a 280 limit (twitter-text v3 configuration).
 const X_LIGHT_RANGES = [[0, 4351], [8192, 8205], [8208, 8223], [8242, 8247]];
 
+// X also turns bare domains ("example.com/path") into links, counted as 23.
+const BARE_DOMAIN_RE = /(^|[\s(])((?:[a-z0-9-]+\.)+(?:com|net|org|io|app|dev|co|ai|gg|me|xyz|tv|ly|so|sh|to|us|uk|de|fr|ca|games|store|shop|site|online)(?:\/[^\s<>"']*)?)(?=$|[\s),.!?;:])/gi;
+
 export function xWeightedLength(text) {
   let n = 0;
   const withoutUrls = String(text).replace(URL_RE, () => {
     n += 23;
     return '';
+  }).replace(BARE_DOMAIN_RE, (m, lead) => {
+    n += 23;
+    return lead;
   });
   for (const ch of withoutUrls) {
     const cp = ch.codePointAt(0);

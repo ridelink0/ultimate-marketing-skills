@@ -68,6 +68,15 @@ test('silent storyboard still gets an audio track; export refuses over-length wi
   assert.equal(c.info.width, 886);
 });
 
+test('regression (pass 2): an audio-only file fails the video check', { skip: !ff && 'ffmpeg not installed' }, () => {
+  const dir = mkdtempSync(join(tmpdir(), 'ums-v-'));
+  const wav = join(dir, 'only.m4a');
+  spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-f', 'lavfi', '-i', 'sine=f=200:d=1', '-c:a', 'aac', '-y', wav]);
+  const c = check(wav, 'tiktok');
+  assert.equal(c.ok, false);
+  assert.equal(c.findings[0].code, 'no-video');
+});
+
 test('bad storyboards fail with a clear message', () => {
   const dir = mkdtempSync(join(tmpdir(), 'ums-v-'));
   writeFileSync(join(dir, 'a.json'), JSON.stringify({ scenes: [] }));
