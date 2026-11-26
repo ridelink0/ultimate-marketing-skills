@@ -121,3 +121,13 @@ test('standalone email plugin is current and self-contained', () => {
   const market = JSON.parse(readFileSync(join(ROOT, '.claude-plugin/marketplace.json'), 'utf8'));
   assert.ok(market.plugins.some((p) => p.name === 'ultimate-email-skills' && p.source === './plugins/ultimate-email-skills'));
 });
+
+test('the doctrine comes before the tools: SKILL.md and every sub-skill point at new-era.md', () => {
+  const main = readFileSync(join(ROOT, 'skills/ultimate-marketing-skills/SKILL.md'), 'utf8');
+  assert.ok(main.indexOf('references/new-era.md') < main.indexOf('## Where the scripts are'));
+  for (const s of ['marketing-video', 'marketing-visual-research', 'social-autopilot', 'launch-playbook', 'sales-playbook', 'email-marketing']) {
+    assert.ok(readFileSync(join(ROOT, 'skills', s, 'SKILL.md'), 'utf8').includes('new-era.md'), s);
+  }
+  const era = readFileSync(join(ROOT, 'skills/ultimate-marketing-skills/references/new-era.md'), 'utf8');
+  assert.ok(era.split('**So Claude:**').length - 1 >= 10, 'each principle says what Claude does');
+});

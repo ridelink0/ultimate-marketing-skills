@@ -5,7 +5,9 @@ description: Use when someone wants to see what ads, posts, thumbnails, hooks or
 
 # Marketing visual research
 
-Part of Ultimate Marketing Skills. Read
+Part of Ultimate Marketing Skills. Research serves the plan in
+`../ultimate-marketing-skills/references/new-era.md`: look for what makes
+strangers stop and send, not for logos to copy. Read
 `../ultimate-marketing-skills/references/visual-research.md`.
 
 ```bash

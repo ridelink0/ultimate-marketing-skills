@@ -5,7 +5,8 @@ description: Use when someone wants a short marketing video - a TikTok, Instagra
 
 # Marketing video
 
-Part of Ultimate Marketing Skills. Read
+Part of Ultimate Marketing Skills. Plan by `../ultimate-marketing-skills/references/new-era.md`
+(native per platform, payoff in two seconds, many honest attempts). Read
 `../ultimate-marketing-skills/references/video.md` and follow its loop:
 one idea, a hook that works muted in the first two seconds, storyboard,
 build, contact sheet (open the PNG and look), fix, check, export, queue.

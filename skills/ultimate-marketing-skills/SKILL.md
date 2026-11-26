@@ -10,6 +10,17 @@ feeds decide who sees what, so the work is native video, honest posts in a
 real voice, and a loop that measures what landed. Old-era tactics (press
 releases nobody reads, hashtag walls, bought followers) are out.
 
+## How marketing works now
+
+Read `references/new-era.md` before planning. In one breath: the feed, not
+the follower count, decides who sees a post, so every post auditions to
+strangers; native versions beat one asset cross-posted; short video leads;
+reach is heavy-tailed, so make many honest attempts and double down on what
+lands; people trust founders and makers over logos; distribution is built
+before launch; communities and an email list outlast any algorithm; AI is for
+speed, and taste and real proof are the edge; fake proof is illegal and
+disclosure is required. The tools below serve that plan; they are not the plan.
+
 ## Where the scripts are
 
 Every `node "${CLAUDE_PLUGIN_ROOT}/scripts/ums.mjs" ...` command runs from the
@@ -109,6 +120,7 @@ only when the person asks: `ums mode autopilot --from-chat "<their words>"`.
 
 | File | When |
 |---|---|
+| `references/new-era.md` | how marketing works now: read before planning |
 | `references/autonomy.md` | modes, approvals, one-command workflows, scheduling |
 | `references/platforms.md` | how each feed distributes and what each wants |
 | `references/video.md` | storyboard schema, hooks, captions, audio, tools |

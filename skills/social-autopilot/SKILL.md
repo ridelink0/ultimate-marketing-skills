@@ -5,7 +5,9 @@ description: Use when someone wants marketing to run on its own or on a schedule
 
 # Social autopilot
 
-Part of Ultimate Marketing Skills. Read
+Part of Ultimate Marketing Skills. Autopilot is for steady output of native
+posts (`../ultimate-marketing-skills/references/new-era.md`), never for
+replies or engagement, which stay human. Read
 `../ultimate-marketing-skills/references/autonomy.md` first; it is the whole
 contract.
 

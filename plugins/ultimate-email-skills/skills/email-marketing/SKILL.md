@@ -5,8 +5,9 @@ description: Use when someone wants email marketing - a newsletter, a welcome or
 
 # Email marketing
 
-Read `references/email.md`. Part of Ultimate Marketing Skills
-(github.com/ridelink0/ultimate-marketing-skills), packaged on its own.
+Part of Ultimate Marketing Skills. Email is the owned channel no feed can take
+away. Read
+`references/email.md`.
 
 ```bash
 node "${CLAUDE_PLUGIN_ROOT}/scripts/email-cli.mjs" needs

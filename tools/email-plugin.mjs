@@ -24,6 +24,7 @@ const retarget = (text) => text
   .replace(/`ums queue add --platform newsletter --file <draft\.md>`/g, 'the approval step (the person reads it and says send)')
   .replace(/Details in `sales\.md`\./g, 'Ultimate Marketing Skills has the full outreach rules.')
   .replace(/; sources in `research\.md` and the research notes\./g, '.')
+  .replace(' Email is the owned channel no feed can take\naway (`../ultimate-marketing-skills/references/new-era.md`).', ' Email is the owned channel no feed can take\naway.')
   .replace(/`\.\.\/ultimate-marketing-skills\/references\/email\.md`/g, '`references/email.md`')
   .replace(/the founder's voice from `\.ums\/voice\.md`/g, "the founder's voice (ask for two or three things they wrote)")
   .replace(/from `\.ums\/voice\.md`/g, 'from things the founder wrote');

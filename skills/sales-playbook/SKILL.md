@@ -5,7 +5,8 @@ description: Use when someone wants to sell, not just market - finding first cus
 
 # Sales playbook
 
-Part of Ultimate Marketing Skills. Read
+Part of Ultimate Marketing Skills. The founder sells first, one person at a
+time (`../ultimate-marketing-skills/references/new-era.md`). Read
 `../ultimate-marketing-skills/references/sales.md`.
 
 ```bash

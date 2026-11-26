@@ -67,6 +67,16 @@ engagement, mass DMs, undisclosed ads, impersonation, unlicensed music.
 
 Full detail: [autonomy](skills/ultimate-marketing-skills/references/autonomy.md).
 
+## What it teaches
+
+UMS teaches Claude how marketing works now, before it hands Claude any tool:
+the feed decides reach, native beats repurposed, short video leads, many
+honest attempts beat one perfect campaign, founders and makers beat logos,
+distribution is built before launch, owned channels outlast algorithms, AI
+is for speed while taste and proof are the edge, and fake proof is illegal.
+Each principle is sourced in
+[references/new-era.md](skills/ultimate-marketing-skills/references/new-era.md).
+
 ## What it does
 
 - **Advises.** `ums advise --type game --hours 6` returns the tactic ladder

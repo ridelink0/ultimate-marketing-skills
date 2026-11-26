@@ -5,8 +5,10 @@ description: Use when someone is launching or about to launch an app, game, SaaS
 
 # Launch playbook
 
-Part of Ultimate Marketing Skills. Run the advisor for the launch stage, then
-build the week:
+Part of Ultimate Marketing Skills. Distribution is built before launch
+(`../ultimate-marketing-skills/references/new-era.md`); launch week cashes in
+attention already earned. Run the advisor for the launch stage, then build the
+week:
 
 ```bash
 node "${CLAUDE_PLUGIN_ROOT}/scripts/ums.mjs" advise --type <type> --stage launch --hours <h> --budget <usd>

@@ -5,7 +5,8 @@ description: Use when someone wants email marketing - a newsletter, a welcome or
 
 # Email marketing
 
-Part of Ultimate Marketing Skills. Read
+Part of Ultimate Marketing Skills. Email is the owned channel no feed can take
+away (`../ultimate-marketing-skills/references/new-era.md`). Read
 `../ultimate-marketing-skills/references/email.md`.
 
 ```bash

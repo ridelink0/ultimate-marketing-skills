@@ -103,6 +103,8 @@ Make the files, then say what you made and where in two sentences.
 
 ## Start
 
+0. Read \`references/new-era.md\`: how attention works now. The steps below
+   serve that plan.
 1. Write \`.ums/brief.md\` from the project (what it is, who for, proof,
    links, hours and budget) and \`.ums/voice.md\` from things the founder wrote.
 2. Pick the ladder: read \`data/playbooks.json\`, take the project type's
@@ -122,6 +124,7 @@ Make the files, then say what you made and where in two sentences.
 
 | File | When |
 |---|---|
+| \`references/new-era.md\` | how marketing works now: read before planning |
 | \`references/autonomy.md\` | modes and approvals |
 | \`references/platforms.md\` | how each feed distributes |
 | \`references/video.md\` | storyboards, hooks, captions, sound |
