@@ -118,6 +118,10 @@ D1. Find the canonical UFS source: compare D:/plugin-work-1101/suite HEAD with G
     ridelink0/ultimate-frontend-skills master (657229889362 on 2026-11-25) and the local
     marketplace clone (6572298 "Directory editions of UFS and Usage Limits under directory/").
     Work in a fresh worktree/branch of whichever is newest; preserve other chats' dirty work.
+    RESULT D1 (checked): D:/plugin-work-1101/suite HEAD 65b822a (2026-11-08, 1 dirty file, plugin
+    6.10.0, usage 1.44.0) is an ancestor of origin/master 6572298 (2026-11-25, has directory/).
+    Use origin/master: `git -C D:/plugin-work-1101/suite worktree add D:/plugin-work-1101/dir-refresh
+    -b gev/directory-refresh origin/master`. Leave the suite's dirty file alone.
 D2. Regenerate directory/ultimate-frontend-skills and directory/usage-limits from current
     sources (UFS tools/directory-edition.mjs; check how usage-limits edition is built). Versions
     must match the current plugin.json of each (UFS 6.12.0? usage-limits 1.46.0 is installed
