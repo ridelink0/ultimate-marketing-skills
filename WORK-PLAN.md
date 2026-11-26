@@ -135,6 +135,13 @@ D3. Run `claude plugin validate` on both edition folders, twice. Check each agai
 D4. Run that repo's own tests (test/directory-edition.test.mjs and the suite), commit on a branch,
     then ASK Gev before pushing or resubmitting in the portal.
 
+PROGRESS after D1: CI workflow + text-hook example (contact sheet inspected) committed 6efd78c;
+link check done 30bf8db (40 URLs; MCP endpoints 401/405 are auth-gated, expected; fixed Bluesky
+lexicon path and Buffer docs). Sales research agent launched in background -> sales.md (if the
+file is missing or truncated after the reset, re-run that track). UFS-parity items 2, 3 (example
+part), 5 are DONE; still open: 1 (more adversarial cases), 3 (field test on a real Gev project),
+4 done earlier (skill folders), 6, 7, 8.
+
 UFS-parity gaps still open, do in this order:
 1. Bug pass 2 (adversarial): Windows paths with spaces/quotes in storyboard media; fontFile family;
    SRT with BOM/CRLF; words.json shapes; queue concurrent ids; run with item.at in future; X weighted
