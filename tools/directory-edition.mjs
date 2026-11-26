@@ -39,7 +39,12 @@ export function render() {
     text = stripGithubOnly(text);
     files.set(`skills/ultimate-marketing-skills/references/${name}`, text);
   }
+  // Script-only data stays out: needs.json names credential environment
+  // variables and install commands, integrations.json and bench.json carry
+  // install lines. The directory flags both, and none works without scripts.
+  const SCRIPT_ONLY = new Set(['needs.json', 'integrations.json', 'bench.json']);
   for (const name of readdirSync(join(SKILL, 'data'))) {
+    if (SCRIPT_ONLY.has(name)) continue;
     files.set(`skills/ultimate-marketing-skills/data/${name}`, readFileSync(join(SKILL, 'data', name), 'utf8'));
   }
   files.set('commands/advise.md', ADVISE_CMD);

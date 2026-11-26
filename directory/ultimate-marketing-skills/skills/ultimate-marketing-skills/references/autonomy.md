@@ -105,30 +105,6 @@ Hunt drafts, community posts, creator email drafts, the launch video, a
 day-by-day run sheet. Every launch site bans automated posting, so the run
 sheet is for a person, with every text ready to paste.
 
-## Fully autonomous, in practice
-
-Set it up once:
-
-```bash
-node "${CLAUDE_PLUGIN_ROOT}/scripts/ums.mjs" mode autopilot --from-chat "<the person's words>"
-```
-
-Put API credentials in the environment (never in chat, never in a file UMS
-writes): `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`,
-`X_ACCESS_TOKEN_SECRET`; `BSKY_HANDLE`, `BSKY_APP_PASSWORD`.
-
-Then schedule the loop. Any of these runs `ums run` on time:
-
-- Claude Code: `/schedule` creates a routine that runs
-  `/ultimate-marketing-skills:autopilot` daily.
-- Claude Desktop scheduled tasks: the same prompt on a timer.
-- Plain cron or Windows Task Scheduler: `node <plugin>/scripts/ums.mjs run`
-  in the project folder.
-
-The caps (default three posts per platform per day, `.ums/config.json`) stop a
-runaway batch. `ums mode supervised` is the kill switch; the next `run` holds
-everything.
-
 ## Partly autonomous, in practice
 
 The default. UMS does the work up to the edge of the public internet:

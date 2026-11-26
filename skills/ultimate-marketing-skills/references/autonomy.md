@@ -105,7 +105,7 @@ Hunt drafts, community posts, creator email drafts, the launch video, a
 day-by-day run sheet. Every launch site bans automated posting, so the run
 sheet is for a person, with every text ready to paste.
 
-## Fully autonomous, in practice
+## Fully autonomous, in practice (GitHub edition only)
 
 Set it up once:
 
