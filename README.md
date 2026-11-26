@@ -56,6 +56,12 @@ reads last week's numbers, writes a report, drafts next week and asks you to
 approve it. X (text and threads) and Bluesky (text and images) publish
 through their official APIs with your own keys.
 
+**No API keys?** `ums browser on <platform>` lets Claude publish each
+approved item itself in the browser where you are already signed in (Claude
+in Chrome, or Computer Use), for X, Bluesky, TikTok, Instagram, YouTube and
+Threads. Never for LinkedIn, Reddit, Hacker News or Product Hunt, whose rules
+ban automated posting.
+
 **Partly autonomous** is everything else, and most of the value. TikTok,
 Instagram, YouTube, LinkedIn, Reddit, Hacker News and Product Hunt either
 require a person at publish time or ban automated posting. There, UMS renders

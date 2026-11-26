@@ -6,7 +6,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync, appendFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { randomBytes } from 'node:crypto';
-import { MODES, ACTIONS, FORBIDDEN, decide, routeFor, DEFAULT_CAPS } from './policy.mjs';
+import { MODES, ACTIONS, FORBIDDEN, BROWSER_BANNED, decide, routeFor, DEFAULT_CAPS } from './policy.mjs';
 import { runChecks } from './checks.mjs';
 
 export const STATUSES = ['pending', 'approved', 'rejected', 'posted', 'failed'];
@@ -62,6 +62,17 @@ export function setMode(ws, mode, by) {
   config.mode = mode;
   writeConfig(ws, config);
   log(ws, { event: 'mode', from, to: mode, ...by });
+  return config;
+}
+
+export function setBrowserPublish(ws, platforms, by = {}) {
+  const list = [...new Set((platforms || []).map((p) => String(p).toLowerCase()))];
+  for (const p of list) if (BROWSER_BANNED[p]) throw new Error(`browser publishing is not available for ${p}: ${BROWSER_BANNED[p]}`);
+  const config = readConfig(ws);
+  const from = config.browserPublish || [];
+  config.browserPublish = list;
+  writeConfig(ws, config);
+  log(ws, { event: 'browser-publish', from, to: list, ...by });
   return config;
 }
 
@@ -215,6 +226,10 @@ export async function runDue(ws, { now = new Date(), dryRun = false, publish } =
     const verdict = decide({ mode: config.mode, action: item.action, item, config, postedToday: postedToday(ws, item.platform, now) });
     if (!verdict.allowed) {
       report.push({ id: item.id, outcome: 'held', needs: verdict.needs, reason: verdict.reason });
+      continue;
+    }
+    if (verdict.via === 'browser') {
+      report.push({ id: item.id, outcome: 'browser-ready', platform: item.platform, reason: 'publish it in the signed-in browser (Claude in Chrome or Computer Use), then ums queue done <id> --url <url>' });
       continue;
     }
     if (dryRun || !publish) {

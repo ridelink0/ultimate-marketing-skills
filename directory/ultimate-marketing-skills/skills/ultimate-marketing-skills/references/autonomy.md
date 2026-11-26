@@ -33,6 +33,28 @@ law or rule behind each.
 | Discord | Person posts | Community trust; announcements are drafted by UMS |
 | X with media, Bluesky with video | Person presses publish | Outside the API routes UMS implements |
 
+### Publishing in the signed-in browser instead
+
+A person who does not want API keys, or wants Claude to publish to TikTok,
+Instagram, YouTube or Threads too, can turn on browser publishing per
+platform:
+
+```bash
+node "${CLAUDE_PLUGIN_ROOT}/scripts/ums.mjs" browser on x bluesky tiktok instagram --from-chat "<the person's words>"
+```
+
+Then, for an item the person approved on its own (never a batch), Claude
+opens the platform in the browser where the person is already signed in
+(Claude in Chrome, or Computer Use on the desktop when the platform is a
+desktop app), fills the post, attaches the file, presses publish, reads the
+post's URL and runs `ums queue done <id> --url <url>`. `ums run` lists these
+items as browser-ready. It is never available for LinkedIn, Reddit, Hacker
+News or Product Hunt, whose rules ban automated posting. Platforms' terms
+limit automated access to their websites, so this is the person's choice per
+platform, made with the risk in view; one post at a time, at a human pace,
+and nothing beyond publishing that post (no follows, likes, comments or DMs).
+`ums browser off` turns it off.
+
 "Person presses publish" still saves most of the work: UMS renders the file,
 writes the caption, checks it against the platform's limits, and in Claude in
 Chrome can open the composer and fill it, stopping before the final button.

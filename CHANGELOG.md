@@ -27,6 +27,9 @@ First release.
 - Email builder version 2: themes (clean, editorial, night), logo header, hero image,
   cards, image-beside-text sections that stack on phones, dividers, dark-mode colours,
   Outlook width fix; checks for hero and section alt text and unhosted images.
+- Browser publishing: ums browser on <platform> lets Claude publish an approved item itself in
+  the signed-in browser (Claude in Chrome or Computer Use) instead of API keys; item approval
+  only, never batches, never LinkedIn, Reddit, Hacker News or Product Hunt.
 - Codex: a SessionStart hook tells the model where the plugin is installed, because Codex
   leaves CLAUDE_PLUGIN_ROOT empty (as in Ultimate Frontend Skills); in both plugins.
 - macOS: Homebrew's plain ffmpeg has no libass. video build now says so and names ffmpeg-full

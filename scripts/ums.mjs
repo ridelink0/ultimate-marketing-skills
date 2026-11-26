@@ -45,6 +45,7 @@ Strategy and research
   adlib <query> [--country US]                  official ad-library and trend URLs to open
   doctor                                        what is installed and what it unlocks
   tools                                         the bench: which installed tool to use for each job
+  browser [on|off] [platform...]                Claude publishes approved items in the signed-in browser
   mcp [on|off]                                  use MCP servers, or keep Claude off them
   needs [job]                                   what a job needs, in setup order (video, publish-x,
                                                 publish-bluesky, publish-assisted, schedule, research,
@@ -161,6 +162,22 @@ async function main() {
     print(r, formatNeeds(r));
     process.exitCode = r.every((j) => j.ready) ? 0 : 1;
     return;
+  }
+
+  if (cmd === 'browser') {
+    const { workspace, readConfig, setBrowserPublish } = await import('./queue.mjs');
+    const ws = workspace(args.dir);
+    if (sub === 'on') {
+      const c = setBrowserPublish(ws, [...new Set([...(readConfig(ws).browserPublish || []), ...rest])], { by: args.by || 'user', quote: args['from-chat'] || '' });
+      return print(c, `browser publishing on for: ${c.browserPublish.join(', ') || 'none'}. Claude publishes an item only after the person approves that item, in the browser where they are signed in.`);
+    }
+    if (sub === 'off') {
+      const keep = rest.length ? (readConfig(ws).browserPublish || []).filter((p) => !rest.includes(p)) : [];
+      const c = setBrowserPublish(ws, keep, { by: args.by || 'user', quote: args['from-chat'] || '' });
+      return print(c, `browser publishing on for: ${c.browserPublish.join(', ') || 'none'}`);
+    }
+    const c = readConfig(ws);
+    return print({ browserPublish: c.browserPublish || [] }, `browser publishing on for: ${(c.browserPublish || []).join(', ') || 'none'}`);
   }
 
   if (cmd === 'mcp') {
@@ -285,7 +302,7 @@ async function runCmd() {
   const now = args.now ? new Date(args.now) : new Date();
   if (Number.isNaN(now.getTime())) fail(`--now is not a date: ${args.now}`);
   const report = await q.runDue(ws, { now, dryRun: Boolean(args['dry-run']), publish });
-  const lines = report.length ? report.map((r) => `${r.id}  ${r.outcome}${r.needs ? ` (needs ${r.needs}: ${r.reason})` : ''}${r.url ? ` ${r.url}` : ''}${r.error ? ` ${r.error}` : ''}${r.until ? ` until ${r.until}` : ''}`) : ['nothing approved and due'];
+  const lines = report.length ? report.map((r) => `${r.id}  ${r.outcome}${r.needs ? ` (needs ${r.needs}: ${r.reason})` : ''}${r.url ? ` ${r.url}` : ''}${r.error ? ` ${r.error}` : ''}${r.until ? ` until ${r.until}` : ''}${r.outcome === 'browser-ready' ? `: ${r.reason}` : ''}`) : ['nothing approved and due'];
   print(report, lines.join('\n'));
   process.exitCode = report.some((r) => r.outcome === 'failed') ? 1 : 0;
 }

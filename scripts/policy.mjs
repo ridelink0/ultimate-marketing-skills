@@ -73,6 +73,24 @@ export function routeFor(platform, item = {}) {
 
 export const DEFAULT_CAPS = { perPlatformPerDay: 3 };
 
+// Platforms whose own rules ban automated posting or automation software on
+// their website. Browser publishing is never switched on for these.
+export const BROWSER_BANNED = {
+  linkedin: "LinkedIn's User Agreement bans software that automates activity on its website",
+  reddit: 'Reddit bans automated posting and vote manipulation; moderators remove it',
+  hackernews: 'Hacker News guidelines ban automated posting',
+  producthunt: 'Product Hunt launches and comments must come from the maker',
+};
+
+// Browser publishing: when the person turns it on for a platform (ums browser
+// on <platform>), Claude publishes an item they approved on its own by
+// pressing publish in their signed-in browser (Claude in Chrome, or Computer
+// Use on the desktop). Used instead of API keys, or for platforms without an
+// API route. Never for a batch approval, never for the banned list above.
+export function browserAllowed(platform, config = {}) {
+  return (config.browserPublish || []).includes(platform) && !BROWSER_BANNED[platform];
+}
+
 // decide() answers one question: may this action on this item happen now,
 // without asking anybody? It returns { allowed, needs, reason }.
 //   allowed: true  -> go ahead
@@ -115,6 +133,12 @@ export function decide({ mode, action, item = {}, config = {}, postedToday = 0 }
     return no('item-approval', why);
   }
 
+  if ((action === 'publish_post' || action === 'schedule_post') && browserAllowed(item.platform, config)) {
+    if (action === 'schedule_post') return no('person-at-publish', 'scheduling inside a platform\'s own web app is done by a person');
+    if (!itemApproved) return no('item-approval', `${item.platform} publishes through the signed-in browser only for an item the person approved on its own; a batch approval does not cover it`);
+    return { allowed: true, needs: null, via: 'browser', reason: 'approved item; Claude publishes it in the person\'s signed-in browser' };
+  }
+
   const route = routeFor(item.platform, item);
   if ((action === 'publish_post' || action === 'schedule_post') && route !== 'api') {
     return no('person-at-publish', `${item.platform} has no publishing route UMS may drive alone; a person presses publish`);
@@ -139,6 +163,8 @@ export function describe() {
   for (const [k, v] of Object.entries(ACTIONS)) lines.push(`  ${k.padEnd(15)} ${v.batchable ? 'batch' : 'item '}  ${v.note}`);
   lines.push('', 'Never, in any mode');
   for (const [k, v] of Object.entries(FORBIDDEN)) lines.push(`  ${k.padEnd(24)} ${v}`);
+  lines.push('', 'Browser publishing (ums browser on <platform>): approved items only, never batches; never for');
+  for (const [k, v] of Object.entries(BROWSER_BANNED)) lines.push(`  ${k.padEnd(12)} ${v}`);
   lines.push('', 'Publishing routes');
   for (const [k, v] of Object.entries(PLATFORM_ROUTES)) lines.push(`  ${k.padEnd(12)} ${v}`);
   return lines.join('\n');

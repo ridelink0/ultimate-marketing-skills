@@ -114,3 +114,24 @@ test('pass 2: an approved item scheduled in the future waits, and is not publish
   assert.equal(r[0].outcome, 'waiting');
   assert.equal(called, false);
 });
+
+test('browser publishing: per platform, item approval only, banned platforms refused, run reports browser-ready', async () => {
+  const { setBrowserPublish } = await import('../scripts/queue.mjs');
+  const ws = init(mkdtempSync(join(tmpdir(), 'ums-br-')), { mode: 'autopilot' });
+  assert.throws(() => setBrowserPublish(ws, ['linkedin']), /not available for linkedin/);
+  setBrowserPublish(ws, ['tiktok', 'x'], { by: 'test' });
+  const cfg = { browserPublish: ['tiktok', 'x'] };
+  const it = (scope) => ({ platform: 'tiktok', approvals: [{ scope }], checks: { blocking: 0 } });
+  assert.equal(decide({ mode: 'autopilot', action: 'publish_post', item: it('batch'), config: cfg }).allowed, false);
+  const ok = decide({ mode: 'supervised', action: 'publish_post', item: it('item'), config: cfg });
+  assert.equal(ok.allowed, true);
+  assert.equal(ok.via, 'browser');
+  assert.equal(decide({ mode: 'draft', action: 'publish_post', item: it('item'), config: cfg }).allowed, false);
+  assert.equal(decide({ mode: 'supervised', action: 'publish_post', item: { ...it('item'), platform: 'linkedin' }, config: { browserPublish: ['linkedin'] } }).needs, 'person-at-publish');
+  const a = addItem(ws, { platform: 'x', text: 'Shipped the map view today.' });
+  approve(ws, { id: a.id, tty: false, quote: 'post that one' });
+  let called = false;
+  const r = await runDue(ws, { publish: async () => { called = true; return {}; } });
+  assert.equal(r[0].outcome, 'browser-ready');
+  assert.equal(called, false, 'the API route is not used when the person chose the browser');
+});
