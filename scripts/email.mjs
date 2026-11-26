@@ -60,6 +60,7 @@ export function checkDraft(text, { htmlBytes = 0 } = {}) {
   const allImgs = [meta.logo, meta.hero, ...splitImgs.map((x) => x[1])].filter(Boolean);
   const images = [...body.matchAll(/!\[([^\]]*)\]\(([^)\s]+)\)/g)];
   for (const u of [...allImgs, ...images.map((x) => x[2])]) {
+    if (/\.webp(\?|$)/i.test(u)) add('warning', 'webp', 'WebP image (' + u + '): Gmail converts WebP and some clients do not show it; use JPG or PNG');
     if (!/^https:\/\//i.test(u) && !/^(\{\{|\*\||\{%)/.test(u)) add('warning', 'image-host', 'image is not an https URL (' + u + '); it shows in a local preview only. Host it at https before sending.');
   }
   for (const im of images) if (!im[1].trim()) add('error', 'image-alt', `image without alt text: ${im[2]}`);

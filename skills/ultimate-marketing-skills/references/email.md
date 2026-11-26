@@ -56,6 +56,23 @@ accent: #9a3f1c             override any of accent, paper, surface, ink, muted
 - Light themes carry dark-mode colours for the clients that honour
   `prefers-color-scheme` (Apple Mail, some Outlook) and the Outlook app's
   `data-ogsc` attributes; Gmail applies its own inversion, so test there.
+- Dark mode differs by client (Litmus, February 2025): Gmail on iOS fully
+  inverts colours, Gmail on Android partly, Gmail on the web not at all;
+  Apple Mail honours the theme's dark colours; classic Outlook on Windows
+  fully inverts and ignores both techniques. Logos need to read on light and
+  dark grounds (a transparent PNG with a thin outline does).
+- Classic Outlook (the Word rendering engine) is supported until at least
+  2029, so code for it as well as the new Outlook through 2027 at least.
+- Plain founder-style emails often beat designed ones for software and
+  newsletters (HubSpot's own test: 21% lower click-through for image-heavy
+  HTML; vendor data, and shops can see the opposite). Use `theme: clean` with
+  no hero for those, and save heroes for launches and product news.
+- Web fonts work in only about a quarter of clients, so every theme uses
+  system font stacks. Avoid WebP images (Gmail converts them); use JPG or PNG.
+- Accessibility: the Email Markup Consortium's 2025 report found serious
+  issues in 99.89% of 443,585 emails, and 96% had no `lang`. Every UMS email
+  sets `lang` and `dir`, marks layout tables `role="presentation"`, uses
+  real headings and 16 px body text, and requires alt text.
 - Phones under 620 px stack split sections and tighten card padding.
 - Outlook on Windows gets a fixed 600 px table through a conditional comment.
 - Images must be hosted at https before sending; local paths work for a

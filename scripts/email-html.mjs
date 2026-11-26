@@ -148,7 +148,7 @@ export function buildEmail(text) {
   [data-ogsb] .bg-paper { background:${t.dark.paper} !important; }` : '';
   const preheader = meta.preheader ? `<div style="display:none;max-height:0;overflow:hidden;mso-hide:all">${esc(meta.preheader)}&#8203;&nbsp;&#8203;&nbsp;&#8203;&nbsp;&#8203;&nbsp;</div>` : '';
   const html = `<!doctype html>
-<html lang="${esc(meta.lang || 'en')}">
+<html lang="${esc(meta.lang || 'en')}" dir="${meta.dir === 'rtl' ? 'rtl' : 'ltr'}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
