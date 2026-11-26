@@ -17,7 +17,7 @@
     },
     "bluesky": {
       "name": "Bluesky",
-      "text": { "text": { "max": 300, "unit": "graphemes", "verified": true, "source": "https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json", "note": "maxGraphemes 300 in the app.bsky.feed.post lexicon" } },
+      "text": { "text": { "max": 300, "unit": "graphemes", "verified": true, "source": "https://github.com/bluesky-social/atproto/blob/main/packages/api/lexicons/app/bsky/feed/post.json", "note": "maxGraphemes 300 in the app.bsky.feed.post lexicon" } },
       "hashtags": { "max": 3, "hard": false },
       "links": { "inBody": "fine", "note": "Links are rich-text facets and do not reduce distribution." }
     },

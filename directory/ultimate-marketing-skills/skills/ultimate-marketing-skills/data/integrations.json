@@ -76,7 +76,7 @@
   ],
   "mcp": [
     { "id": "hubspot", "name": "HubSpot", "url": "https://mcp.hubspot.com/anthropic", "official": true, "access": "read and write CRM", "use": "contacts, deals and campaign attribution for reports" },
-    { "id": "buffer", "name": "Buffer", "url": "https://mcp.buffer.com/mcp", "official": true, "access": "scheduling", "use": "hand approved queue items to Buffer when a platform has no UMS API route", "docs": "https://developers.buffer.com/guides/integrations/mcp" },
+    { "id": "buffer", "name": "Buffer", "url": "https://mcp.buffer.com/mcp", "official": true, "access": "scheduling", "use": "hand approved queue items to Buffer when a platform has no UMS API route", "docs": "https://developers.buffer.com/" },
     { "id": "canva", "name": "Canva", "url": "https://mcp.canva.com/mcp", "official": true, "access": "design create and export", "use": "brand-kit carousels and thumbnails" },
     { "id": "ahrefs", "name": "Ahrefs", "url": "https://api.ahrefs.com/mcp/mcp", "official": true, "access": "read", "use": "keywords, backlinks, competitor pages for search and AI-answer work" },
     { "id": "similarweb", "name": "Similarweb", "url": "https://mcp.similarweb.com", "official": true, "access": "read", "use": "competitor traffic and channel mix" },
