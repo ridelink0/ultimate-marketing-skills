@@ -226,3 +226,17 @@ Sales module, bundled MCP servers + ums needs, field test (repo D:/ums-field-rid
 regressions from it, 50/50 tests twice, validate root + directory edition twice. Next: push via
 session ums-push (Gev approved pushing once done): UMS public repo, field-test repo private,
 UFS gev/directory-refresh PR.
+
+## Status 2026-11-26 (supersedes every "next" list above)
+
+Built, tested (65/65 twice), validated (root, directory edition, plugins/ultimate-email-skills,
+twice each) and pushed to github.com/ridelink0/ultimate-marketing-skills. Field test pushed to
+ridelink0/ums-field-test-ridelink (private). UFS directory editions merged (PR #6, 2bd1c4e).
+
+Not done, and why:
+- Claude directory portal submission for UMS, the email plugin and the refreshed UFS/Usage
+  editions: needs Gev signed in at claude.ai/directory/manage; Claude does not sign in for him.
+- Live publish test on real X and Bluesky accounts: needs Gev's own API keys; only a local stub
+  has been exercised.
+- Email rendering in real Gmail, Outlook and Apple Mail: only headless Edge renders were checked.
+- Buffer/Postiz auto-publish route: Gev said not now.

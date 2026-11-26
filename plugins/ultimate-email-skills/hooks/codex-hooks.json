@@ -1,0 +1,16 @@
+{
+  "description": "ultimate-email-skills for Codex: says where the plugin is installed, because Codex leaves CLAUDE_PLUGIN_ROOT empty. Codex runs it only after you trust it in /hooks.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT}/hooks/codex-root.mjs\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

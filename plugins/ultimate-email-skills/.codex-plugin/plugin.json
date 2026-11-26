@@ -24,5 +24,7 @@
     "klaviyo",
     "resend",
     "mailerlite"
-  ]
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/codex-hooks.json"
 }

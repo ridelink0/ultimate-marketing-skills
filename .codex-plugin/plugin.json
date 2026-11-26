@@ -43,5 +43,7 @@
     "automation",
     "approval queue",
     "claude in chrome"
-  ]
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/codex-hooks.json"
 }

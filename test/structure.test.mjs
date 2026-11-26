@@ -131,3 +131,17 @@ test('the doctrine comes before the tools: SKILL.md and every sub-skill point at
   const era = readFileSync(join(ROOT, 'skills/ultimate-marketing-skills/references/new-era.md'), 'utf8');
   assert.ok(era.split('**So Claude:**').length - 1 >= 10, 'each principle says what Claude does');
 });
+
+test('codex: SessionStart hook names the plugin folder for both plugins, and the manifests point at it', () => {
+  for (const [dir, entry] of [['.', 'ums.mjs'], ['plugins/ultimate-email-skills', 'email-cli.mjs']]) {
+    const base = join(ROOT, dir);
+    const r = spawnSync(process.execPath, [join(base, 'hooks/codex-root.mjs')], { input: '{}', encoding: 'utf8', env: { ...process.env, PLUGIN_ROOT: base } });
+    assert.equal(r.status, 0);
+    assert.ok(r.stdout.includes(base.split('\\').join('/')), r.stdout);
+    assert.ok(r.stdout.includes('scripts/' + entry), r.stdout);
+    const cx = JSON.parse(readFileSync(join(base, '.codex-plugin/plugin.json'), 'utf8'));
+    assert.equal(cx.hooks, './hooks/codex-hooks.json');
+    const h = JSON.parse(readFileSync(join(base, 'hooks/codex-hooks.json'), 'utf8'));
+    assert.match(h.hooks.SessionStart[0].hooks[0].command, /codex-root\.mjs/);
+  }
+});
