@@ -122,6 +122,21 @@ D1. Find the canonical UFS source: compare D:/plugin-work-1101/suite HEAD with G
     6.10.0, usage 1.44.0) is an ancestor of origin/master 6572298 (2026-11-25, has directory/).
     Use origin/master: `git -C D:/plugin-work-1101/suite worktree add D:/plugin-work-1101/dir-refresh
     -b gev/directory-refresh origin/master`. Leave the suite's dirty file alone.
+    D2/D3 FINDINGS (worktree D:/plugin-work-1101/dir-refresh, branch gev/directory-refresh from
+    6572298): `node tools/directory-edition.mjs --check` says both editions up to date (UFS 87
+    files, usage 10); versions 6.12.0 / 1.46.0 match; `claude plugin validate` passes both but
+    flags README with no marketplace install line (both). Policy 4B risk: UFS edition ships
+    references/image-gen.md and "image generation" in plugin.json keywords/description. FIX in
+    tools/directory-edition/ sources (never the generated folder): add install lines
+    (`/plugin install ultimate-frontend-skills --marketplace ridelink0/ultimate-frontend-skills`,
+    `/plugin install usage-limits --marketplace ridelink0/ultimate-frontend-skills`), drop
+    image-gen.md + image-generation keyword/description text from the UFS edition (keep in GitHub
+    edition), rebuild, --check, validate twice, run test/directory-edition.test.mjs, commit on the
+    branch. Ask Gev before push.
+    D DONE locally: commit 9c5960d on gev/directory-refresh (worktree D:/plugin-work-1101/dir-refresh):
+    install lines added, UFS edition 86 files without image-gen.md or the image-generation keyword;
+    --check current; claude plugin validate passes both with no notes; test/directory-edition 5 pass,
+    0 fail, 1 not run (check why). NOT pushed; ask Gev before push and portal resubmission.
 D2. Regenerate directory/ultimate-frontend-skills and directory/usage-limits from current
     sources (UFS tools/directory-edition.mjs; check how usage-limits edition is built). Versions
     must match the current plugin.json of each (UFS 6.12.0? usage-limits 1.46.0 is installed
