@@ -259,7 +259,13 @@ export function readStoryboard(file) {
 function sceneArgs(scene, i, { w, h, fps, background }) {
   const d = scene.duration.toFixed(3);
   const frames = Math.max(1, Math.round(scene.duration * fps));
-  const cover = `scale=${w}:${h}:force_original_aspect_ratio=increase,crop=${w}:${h},setsar=1`;
+  // `fit: "contain"` keeps the whole picture (logos, icons, screenshots) and
+  // pads with the scene colour; the default fills the frame and crops.
+  const pad = hexColor(scene.background || background);
+  const fill = (fw, fh) => (scene.fit === 'contain'
+    ? `scale=${fw}:${fh}:force_original_aspect_ratio=decrease,pad=${fw}:${fh}:(ow-iw)/2:(oh-ih)/2:color=${pad}`
+    : `scale=${fw}:${fh}:force_original_aspect_ratio=increase,crop=${fw}:${fh}`);
+  const cover = `${fill(w, h)},setsar=1`;
   const out = `seg${String(i).padStart(3, '0')}.mp4`;
   const enc = ['-r', String(fps), '-pix_fmt', 'yuv420p', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-an', '-y', out];
   if (scene.video) {
@@ -271,7 +277,7 @@ function sceneArgs(scene, i, { w, h, fps, background }) {
       return { out, args: ['-hide_banner', '-loglevel', 'error', '-loop', '1', '-t', d, '-i', scene.image, '-vf', `${cover},fps=${fps}`, ...enc] };
     }
     // Slow push-in. Scale up first so the zoom does not shimmer.
-    const zoom = `scale=${w * 2}:${h * 2}:force_original_aspect_ratio=increase,crop=${w * 2}:${h * 2},zoompan=z='1+0.10*on/${frames}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=${frames}:s=${w}x${h}:fps=${fps},setsar=1`;
+    const zoom = `${fill(w * 2, h * 2)},zoompan=z='1+0.10*on/${frames}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=${frames}:s=${w}x${h}:fps=${fps},setsar=1`;
     return { out, args: ['-hide_banner', '-loglevel', 'error', '-i', scene.image, '-vf', zoom, '-frames:v', String(frames), ...enc] };
   }
   const color = hexColor(scene.background || background);

@@ -49,6 +49,8 @@ render before anything is queued.
 
 - `platform` sets the size from `data/platforms.json`; or give `size: "1080x1920"`.
 - Paths are relative to the storyboard file.
+- `fit: "contain"` on an `image` or `video` scene keeps the whole picture (icons, logos,
+  screenshots) and pads with the scene colour; the default fills the frame and crops.
 - Scene sources: `video` (with `start` seconds), `image` (slow push-in
   unless `zoom: false`), or a flat `background` colour.
 - `text` is the large centred line (`align: "top"` moves it up); `caption`

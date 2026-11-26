@@ -88,7 +88,7 @@ export function decide({ mode, action, item = {}, config = {}, postedToday = 0 }
   if (!spec) return no('never', `unknown action "${action}"`);
 
   if (mode === 'advise' || mode === 'draft') {
-    return no('item-approval', `${mode} mode publishes nothing; switch to supervised or autopilot`);
+    return no('mode-change', `${mode} mode publishes nothing; switch to supervised or autopilot`);
   }
 
   if (item.disclosureRequired && !item.disclosed) {

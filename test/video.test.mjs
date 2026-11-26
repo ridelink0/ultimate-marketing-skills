@@ -86,3 +86,14 @@ test('bad storyboards fail with a clear message', () => {
   writeFileSync(join(dir, 'c.json'), JSON.stringify({ scenes: [{ duration: -1 }] }));
   assert.throws(() => build(join(dir, 'c.json'), join(dir, 'x.mp4')), /duration/);
 });
+
+test('regression (field test): fit contain keeps a square image whole instead of cropping it', { skip: !ff && 'ffmpeg not installed' }, () => {
+  const dir = mkdtempSync(join(tmpdir(), 'ums-v-'));
+  spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-f', 'lavfi', '-i', 'color=c=0xff0000:s=400x400:d=1', '-frames:v', '1', '-y', join(dir, 'sq.png')]);
+  writeFileSync(join(dir, 'sb.json'), JSON.stringify({ size: '720x1280', scenes: [{ duration: 1, image: 'sq.png', fit: 'contain', zoom: false, background: '#000000' }] }));
+  const out = join(dir, 'c.mp4');
+  build(join(dir, 'sb.json'), out);
+  const r = spawnSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-i', out, '-vf', 'crop=8:8:356:10', '-frames:v', '1', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], { maxBuffer: 1 << 20 });
+  const px = r.stdout;
+  assert.ok(px[0] < 40 && px[1] < 40, `top band should be padding, got rgb(${px[0]},${px[1]},${px[2]})`);
+});
