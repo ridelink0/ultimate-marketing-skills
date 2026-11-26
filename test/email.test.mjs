@@ -69,3 +69,34 @@ test('buildFile writes html and txt next to the draft', () => {
   assert.ok(existsSync(r.html) && existsSync(r.text));
   assert.equal(r.check.ok, true);
 });
+
+test('v2: themes, logo, hero, split, card, divider, dark mode and phone stacking', async () => {
+  const { buildEmail: b2 } = await import('../scripts/email-html.mjs');
+  const d = readFileSync(join(ROOT, 'examples/email-launch/launch.md'), 'utf8');
+  const r = b2(d);
+  assert.equal(r.theme, 'editorial');
+  for (const s of ['src="logo.png"', 'src="hero.jpg"', 'class="stack"', 'class="bg-surface p-sm"', 'prefers-color-scheme: dark', 'max-width: 620px', 'Georgia', '<!--[if mso]>']) assert.ok(r.html.includes(s), s);
+  assert.match(r.text, /\[Three cottages/);
+  assert.match(r.text, /^---$/m);
+  const night = b2(d.replace('theme: editorial', 'theme: night'));
+  assert.ok(!night.html.includes('prefers-color-scheme: dark'), 'night theme is already dark');
+  assert.ok(night.html.includes('#d4af37'));
+  const custom = b2(d.replace('theme: editorial', 'theme: clean\naccent: #ff5500\npaper: notacolor'));
+  assert.ok(custom.html.includes('#ff5500'));
+  assert.ok(!custom.html.includes('notacolor'));
+});
+
+test('v2 checks: hero needs alt, split image needs alt, unknown theme fails, local images warn, javascript images dropped', async () => {
+  const { buildEmail: b2 } = await import('../scripts/email-html.mjs');
+  const base = '---\nsubject: Hi\npreheader: p\naddress: 1 Main St\nunsubscribe: {{ unsubscribe_url }}\n';
+  const c1 = checkDraft(`${base}hero: https://example.com/h.jpg\n---\nBody text here.\n`);
+  assert.ok(codes(c1).includes('hero-alt'));
+  const c2 = checkDraft(`${base}---\n::: split https://example.com/s.png\nText\n:::\n`);
+  assert.ok(codes(c2).includes('image-alt'));
+  const c3 = checkDraft(`${base}theme: neon\n---\nBody.\n`);
+  assert.ok(codes(c3).includes('theme'));
+  const c4 = checkDraft(`${base}---\n![A shot](shot.png)\n`);
+  assert.ok(codes(c4).includes('image-host'));
+  const h = b2(`${base}hero: javascript:alert(1)\nheroalt: x\n---\n![x](javascript:alert(1))\n`).html;
+  assert.ok(!h.includes('javascript:'));
+});

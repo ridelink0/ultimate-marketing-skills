@@ -32,6 +32,41 @@ MCP server (Klaviyo, Resend and MailerLite ship with UMS; sign in with
 services (`{{ unsubscribe_url }}`, `*|UNSUB|*`, `{% unsubscribe %}`) pass
 through untouched.
 
+## Images and style (version 2 builder)
+
+Frontmatter picks the look; the body adds sections:
+
+```
+theme: editorial            clean | editorial | night (night is already dark)
+brand: Moss Lane            name in the header when there is no logo
+logo: https://.../logo.png  32 px high in the header; logoalt: Moss Lane
+hero: https://.../hero.jpg  full width under the header; heroalt is required
+accent: #9a3f1c             override any of accent, paper, surface, ink, muted
+
+::: card                    a shaded box for one point or an offer
+...
+:::
+::: split https://.../shot.png | alt text
+## Text beside the picture  stacks under it on phones
+:::
+---                         a divider
+-> [Button text](https://...)
+```
+
+- Light themes carry dark-mode colours for the clients that honour
+  `prefers-color-scheme` (Apple Mail, some Outlook) and the Outlook app's
+  `data-ogsc` attributes; Gmail applies its own inversion, so test there.
+- Phones under 620 px stack split sections and tighten card padding.
+- Outlook on Windows gets a fixed 600 px table through a conditional comment.
+- Images must be hosted at https before sending; local paths work for a
+  preview only, and `ums email check` warns about each one. Export hero
+  images at 1200 px wide (shown at 600) so they stay sharp on high-density
+  screens, and keep each under a few hundred kilobytes.
+- Every image needs alt text: many inboxes block images until the reader
+  allows them, so the email must make sense without them.
+- `examples/email-launch/` is a full example, rendered at phone and desktop
+  width in light and dark mode.
+
 ## What to measure
 
 - **Opens are unreliable.** Apple Mail Privacy Protection loads remote

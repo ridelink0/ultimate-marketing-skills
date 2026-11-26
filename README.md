@@ -102,7 +102,8 @@ Full detail: [autonomy](skills/ultimate-marketing-skills/references/autonomy.md)
 - **Runs email.** `ums email sequence` drafts welcome, onboarding, launch,
   game-launch and win-back sequences; `ums email check` holds each draft to
   CAN-SPAM, PECR and CASL and the Gmail and Yahoo sender rules; `ums email build`
-  turns it into email-client HTML plus a plain-text part. Klaviyo, Resend and
+  turns it into styled email HTML (three themes, logo, hero image, cards,
+  image-beside-text sections, dark mode) plus a plain-text part. Klaviyo, Resend and
   MailerLite ship as MCP servers for sending, after you approve each send.
 - **Sells, too.** A local pipeline (`ums pipeline`), discovery-call prep,
   one-to-one outreach drafts checked against CAN-SPAM, UK PECR and the Gmail,

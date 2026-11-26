@@ -24,6 +24,10 @@ First release.
 - Email: ums email sequence (welcome, onboarding, launch, game-launch, winback), ums email
   check (subject, preheader, unsubscribe, postal address, alt text, links, size, tells) and
   ums email build (600 px email HTML plus plain text); the email-marketing skill.
+- Email builder version 2: themes (clean, editorial, night), logo header, hero image,
+  cards, image-beside-text sections that stack on phones, dividers, dark-mode colours,
+  Outlook width fix; checks for hero and section alt text and unhosted images.
+- docs/comparison.md: how teams make marketing in 2026 and how UMS compares.
 - Fifteen official MCP servers ship with the plugin (HubSpot, Attio, Close, Apollo,
   Buffer, Canva, Figma, Ahrefs, Similarweb, Klaviyo, Resend, MailerLite, Amplitude,
   Supermetrics, Notion);

@@ -163,5 +163,61 @@
         }
       ]
     }
+  },
+  "themes": {
+    "clean": {
+      "paper": "#ffffff",
+      "surface": "#f3f4f6",
+      "ink": "#1a1a1a",
+      "muted": "#5f6368",
+      "accent": "#0b57d0",
+      "buttonText": "#ffffff",
+      "rule": "#e3e5e8",
+      "font": "Helvetica, Arial, sans-serif",
+      "headFont": "Helvetica, Arial, sans-serif",
+      "headWeight": "bold",
+      "radius": 6,
+      "dark": {
+        "paper": "#121212",
+        "surface": "#1e1e1e",
+        "ink": "#f1f1f1",
+        "muted": "#a8acb1",
+        "accent": "#8ab4f8"
+      }
+    },
+    "editorial": {
+      "paper": "#f6f1e8",
+      "surface": "#ece4d6",
+      "ink": "#1c1915",
+      "muted": "#6b6258",
+      "accent": "#9a3f1c",
+      "buttonText": "#ffffff",
+      "rule": "#d8cdbb",
+      "font": "Helvetica, Arial, sans-serif",
+      "headFont": "Georgia, 'Times New Roman', serif",
+      "headWeight": "normal",
+      "radius": 2,
+      "dark": {
+        "paper": "#171410",
+        "surface": "#221e18",
+        "ink": "#efe8dc",
+        "muted": "#a99f90",
+        "accent": "#e08a5f"
+      }
+    },
+    "night": {
+      "paper": "#0c0a03",
+      "surface": "#15120a",
+      "ink": "#f2ede4",
+      "muted": "#a39b88",
+      "accent": "#d4af37",
+      "buttonText": "#0c0a03",
+      "rule": "#3a3220",
+      "font": "Helvetica, Arial, sans-serif",
+      "headFont": "Georgia, 'Times New Roman', serif",
+      "headWeight": "normal",
+      "radius": 6,
+      "dark": null
+    }
   }
 }
