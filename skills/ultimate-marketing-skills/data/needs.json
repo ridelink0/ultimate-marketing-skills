@@ -4,82 +4,254 @@
     "video": {
       "name": "Render, check and export short video",
       "steps": [
-        { "kind": "bin", "id": "ffmpeg", "why": "renders, checks loudness, exports", "how": "winget install Gyan.FFmpeg (Windows), brew install ffmpeg (macOS), apt install ffmpeg (Linux)" },
-        { "kind": "bin", "id": "ffprobe", "why": "reads size, length and codecs", "how": "comes with ffmpeg" },
-        { "kind": "optional-bin", "id": "whisper-ctranslate2", "why": "word-timed captions from a voiceover", "how": "pip install whisper-ctranslate2 (or faster-whisper)" },
-        { "kind": "plugin", "id": "ultimate-frontend-skills", "optional": true, "why": "website renders, Remotion motion pieces, share cards", "how": "claude plugin marketplace add ridelink0/ultimate-frontend-skills && claude plugin install ultimate-frontend-skills@ultimate-frontend-skills" }
+        {
+          "kind": "bin",
+          "id": "ffmpeg",
+          "why": "renders, checks loudness, exports",
+          "how": "winget install Gyan.FFmpeg (Windows), brew install ffmpeg (macOS), apt install ffmpeg (Linux)"
+        },
+        {
+          "kind": "bin",
+          "id": "ffprobe",
+          "why": "reads size, length and codecs",
+          "how": "comes with ffmpeg"
+        },
+        {
+          "kind": "optional-bin",
+          "id": "whisper-ctranslate2",
+          "why": "word-timed captions from a voiceover",
+          "how": "pip install whisper-ctranslate2 (or faster-whisper)"
+        },
+        {
+          "kind": "plugin",
+          "id": "ultimate-frontend-skills",
+          "optional": true,
+          "why": "website renders, Remotion motion pieces, share cards",
+          "how": "claude plugin marketplace add ridelink0/ultimate-frontend-skills && claude plugin install ultimate-frontend-skills@ultimate-frontend-skills"
+        }
       ]
     },
     "publish-x": {
       "name": "Publish approved X posts automatically",
       "steps": [
-        { "kind": "env", "id": ["X_API_KEY", "X_API_SECRET", "X_ACCESS_TOKEN", "X_ACCESS_TOKEN_SECRET"], "why": "the X API posts with your own app's keys", "how": "create an app at developer.x.com with read and write permission, then set the four values as environment variables (never paste them into chat)" },
-        { "kind": "mode", "id": "supervised", "why": "the queue must allow publishing", "how": "ums mode supervised (or autopilot for batches)" }
+        {
+          "kind": "env",
+          "id": [
+            "X_API_KEY",
+            "X_API_SECRET",
+            "X_ACCESS_TOKEN",
+            "X_ACCESS_TOKEN_SECRET"
+          ],
+          "why": "the X API posts with your own app's keys",
+          "how": "create an app at developer.x.com with read and write permission, then set the four values as environment variables (never paste them into chat)"
+        },
+        {
+          "kind": "mode",
+          "id": "supervised",
+          "why": "the queue must allow publishing",
+          "how": "ums mode supervised (or autopilot for batches)"
+        }
       ]
     },
     "publish-bluesky": {
       "name": "Publish approved Bluesky posts automatically",
       "steps": [
-        { "kind": "env", "id": ["BSKY_HANDLE", "BSKY_APP_PASSWORD"], "why": "an app password, not your main password", "how": "Bluesky Settings > Privacy and security > App passwords; set both as environment variables" },
-        { "kind": "mode", "id": "supervised", "why": "the queue must allow publishing", "how": "ums mode supervised (or autopilot)" }
+        {
+          "kind": "env",
+          "id": [
+            "BSKY_HANDLE",
+            "BSKY_APP_PASSWORD"
+          ],
+          "why": "an app password, not your main password",
+          "how": "Bluesky Settings > Privacy and security > App passwords; set both as environment variables"
+        },
+        {
+          "kind": "mode",
+          "id": "supervised",
+          "why": "the queue must allow publishing",
+          "how": "ums mode supervised (or autopilot)"
+        }
       ]
     },
     "publish-assisted": {
       "name": "Publish to TikTok, Instagram, YouTube, LinkedIn, Reddit with a person pressing publish",
       "steps": [
-        { "kind": "surface", "id": "claude-in-chrome", "why": "fills the composer in your signed-in Chrome", "how": "install the Claude in Chrome extension and sign in to each platform yourself" }
+        {
+          "kind": "surface",
+          "id": "claude-in-chrome",
+          "why": "fills the composer in your signed-in Chrome",
+          "how": "install the Claude in Chrome extension and sign in to each platform yourself"
+        }
       ]
     },
     "schedule": {
       "name": "Run the weekly loop on a timer",
       "steps": [
-        { "kind": "surface", "id": "claude-code-schedule", "why": "runs /ultimate-marketing-skills:autopilot on time", "how": "in Claude Code: /schedule, or a Claude Desktop scheduled task, or cron running ums run" },
-        { "kind": "mcp", "id": "buffer", "optional": true, "why": "hands approved posts to Buffer for platforms without a UMS API route", "how": "/mcp, then sign in to buffer" }
+        {
+          "kind": "surface",
+          "id": "claude-code-schedule",
+          "why": "runs /ultimate-marketing-skills:autopilot on time",
+          "how": "in Claude Code: /schedule, or a Claude Desktop scheduled task, or cron running ums run"
+        },
+        {
+          "kind": "mcp",
+          "id": "buffer",
+          "optional": true,
+          "why": "hands approved posts to Buffer for platforms without a UMS API route",
+          "how": "/mcp, then sign in to buffer"
+        }
       ]
     },
     "research": {
       "name": "Ad-library and trend research",
       "steps": [
-        { "kind": "surface", "id": "browser", "why": "reads the live ad libraries", "how": "Claude in Chrome, or the Claude desktop app's browser pane" },
-        { "kind": "mcp", "id": "similarweb", "optional": true, "why": "competitor traffic and channel mix", "how": "/mcp, then sign in to similarweb" },
-        { "kind": "mcp", "id": "ahrefs", "optional": true, "why": "competitor keywords and backlinks", "how": "/mcp, then sign in to ahrefs" }
+        {
+          "kind": "surface",
+          "id": "browser",
+          "why": "reads the live ad libraries",
+          "how": "Claude in Chrome, or the Claude desktop app's browser pane"
+        },
+        {
+          "kind": "mcp",
+          "id": "similarweb",
+          "optional": true,
+          "why": "competitor traffic and channel mix",
+          "how": "/mcp, then sign in to similarweb"
+        },
+        {
+          "kind": "mcp",
+          "id": "ahrefs",
+          "optional": true,
+          "why": "competitor keywords and backlinks",
+          "how": "/mcp, then sign in to ahrefs"
+        }
       ]
     },
     "measure": {
       "name": "Weekly results report",
       "steps": [
-        { "kind": "mcp", "id": "supermetrics", "why": "ad and social metrics across platforms in one call", "how": "/mcp, then sign in to supermetrics" },
-        { "kind": "mcp", "id": "amplitude", "optional": true, "why": "activation and retention behind the marketing", "how": "/mcp, then sign in to amplitude" },
-        { "kind": "plugin", "id": "google-analytics-mcp", "optional": true, "why": "site traffic and conversions", "how": "see github.com/googleanalytics/google-analytics-mcp (runs locally with Google credentials)" }
+        {
+          "kind": "mcp",
+          "id": "supermetrics",
+          "why": "ad and social metrics across platforms in one call",
+          "how": "/mcp, then sign in to supermetrics"
+        },
+        {
+          "kind": "mcp",
+          "id": "amplitude",
+          "optional": true,
+          "why": "activation and retention behind the marketing",
+          "how": "/mcp, then sign in to amplitude"
+        },
+        {
+          "kind": "plugin",
+          "id": "google-analytics-mcp",
+          "optional": true,
+          "why": "site traffic and conversions",
+          "how": "see github.com/googleanalytics/google-analytics-mcp (runs locally with Google credentials)"
+        }
       ]
     },
     "sales": {
       "name": "Pipeline, CRM and outreach",
       "steps": [
-        { "kind": "workspace", "id": "pipeline", "why": "local pipeline that works with no CRM", "how": "ums init, then ums pipeline add" },
-        { "kind": "mcp", "id": "hubspot", "optional": true, "why": "contacts, deals and history in HubSpot", "how": "/mcp, then sign in to hubspot (or attio, or close, whichever CRM you use)" },
-        { "kind": "mcp", "id": "apollo", "optional": true, "why": "finding contacts; search and enrichment spend Apollo credits", "how": "/mcp, then sign in to apollo" },
-        { "kind": "dns", "id": "email-auth", "why": "Gmail, Yahoo and Outlook.com require SPF, DKIM and DMARC from bulk senders", "how": "set SPF, DKIM and a DMARC record (p=none is enough to start) on the sending domain; check with your email provider" }
+        {
+          "kind": "workspace",
+          "id": "pipeline",
+          "why": "local pipeline that works with no CRM",
+          "how": "ums init, then ums pipeline add"
+        },
+        {
+          "kind": "mcp",
+          "id": "hubspot",
+          "optional": true,
+          "why": "contacts, deals and history in HubSpot",
+          "how": "/mcp, then sign in to hubspot (or attio, or close, whichever CRM you use)"
+        },
+        {
+          "kind": "mcp",
+          "id": "apollo",
+          "optional": true,
+          "why": "finding contacts; search and enrichment spend Apollo credits",
+          "how": "/mcp, then sign in to apollo"
+        },
+        {
+          "kind": "dns",
+          "id": "email-auth",
+          "why": "Gmail, Yahoo and Outlook.com require SPF, DKIM and DMARC from bulk senders",
+          "how": "set SPF, DKIM and a DMARC record (p=none is enough to start) on the sending domain; check with your email provider"
+        }
       ]
     },
     "email": {
-      "name": "Email and SMS flows",
+      "name": "Email sequences, newsletters and launch emails",
       "steps": [
-        { "kind": "mcp", "id": "klaviyo", "why": "flows, lists and campaigns", "how": "/mcp, then sign in to klaviyo" },
-        { "kind": "dns", "id": "email-auth", "why": "deliverability", "how": "SPF, DKIM, DMARC and one-click unsubscribe" }
+        {
+          "kind": "workspace",
+          "id": "drafts",
+          "why": "drafts, checks and HTML builds work with no email service",
+          "how": "ums email sequence <type> --out .ums/email/<type>"
+        },
+        {
+          "kind": "mcp",
+          "id": "klaviyo",
+          "optional": true,
+          "why": "shops: flows, lists and campaigns",
+          "how": "/mcp, then sign in to klaviyo",
+          "manual": "paste the built HTML and text into your email service"
+        },
+        {
+          "kind": "mcp",
+          "id": "resend",
+          "optional": true,
+          "why": "developers: send approved emails and broadcasts",
+          "how": "/mcp, then sign in to resend",
+          "manual": "paste the built HTML and text into your email service"
+        },
+        {
+          "kind": "mcp",
+          "id": "mailerlite",
+          "optional": true,
+          "why": "small teams: newsletters and automations",
+          "how": "/mcp, then sign in to mailerlite",
+          "manual": "paste the built HTML and text into your email service"
+        },
+        {
+          "kind": "dns",
+          "id": "email-auth",
+          "why": "Gmail, Yahoo and Outlook.com require SPF, DKIM and DMARC from bulk senders, plus one-click unsubscribe",
+          "how": "set SPF, DKIM and DMARC on the sending domain; confirm your email service adds List-Unsubscribe and List-Unsubscribe-Post headers"
+        }
       ]
     },
     "design": {
       "name": "Carousels, thumbnails and ad variants on brand",
       "steps": [
-        { "kind": "mcp", "id": "canva", "why": "brand-kit designs and exports", "how": "/mcp, then sign in to canva" },
-        { "kind": "mcp", "id": "figma", "optional": true, "why": "variants from the design system", "how": "/mcp, then sign in to figma" }
+        {
+          "kind": "mcp",
+          "id": "canva",
+          "why": "brand-kit designs and exports",
+          "how": "/mcp, then sign in to canva"
+        },
+        {
+          "kind": "mcp",
+          "id": "figma",
+          "optional": true,
+          "why": "variants from the design system",
+          "how": "/mcp, then sign in to figma"
+        }
       ]
     },
     "plan": {
       "name": "Briefs and calendars where the team plans",
       "steps": [
-        { "kind": "mcp", "id": "notion", "optional": true, "why": "writes the calendar into Notion", "how": "/mcp, then sign in to notion" }
+        {
+          "kind": "mcp",
+          "id": "notion",
+          "optional": true,
+          "why": "writes the calendar into Notion",
+          "how": "/mcp, then sign in to notion"
+        }
       ]
     }
   }

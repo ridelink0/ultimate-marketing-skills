@@ -35,6 +35,11 @@ Video (ffmpeg)
   video check <in> --platform <p>               video sheet <in> --out <png> [--cols 4 --rows 3]
   video frames <in> --at 0,1.5,3 --out <dir>    video safezone <platform> --out <png>
 
+Email
+  email check <draft.md>                        subject, preheader, unsubscribe, address, links, images, tells
+  email build <draft.md> [--out dir]            email HTML (600px, dark-mode safe) plus a plain-text part
+  email sequence <type> --out <dir> [--name n]  welcome, onboarding, launch, game-launch, winback drafts
+
 Strategy and research
   advise --type <t> [--stage s] [--hours h] [--budget usd] [--json]
   adlib <query> [--country US]                  official ad-library and trend URLs to open
@@ -116,6 +121,7 @@ async function main() {
   }
 
   if (cmd === 'video') return videoCmd();
+  if (cmd === 'email') return emailCmd();
 
   if (cmd === 'advise') {
     const { advise, formatAdvice } = await import('./advise.mjs');
@@ -237,6 +243,32 @@ async function pipelineCmd() {
     return print(s, s.map((x) => `${x.stage.padEnd(9)} ${String(x.count).padStart(3)}  ${x.value}`).join('\n'));
   }
   fail('pipeline needs add, move, note, next or list');
+}
+
+async function emailCmd() {
+  const e = await import('./email.mjs');
+  const target = rest[0];
+  const fmt = (head, findings) => [head, ...findings.map((f) => '  ' + (f.level === 'error' ? 'ERROR' : 'warn ') + ' ' + f.code + ': ' + f.message)].join('\n');
+  if (sub === 'check') {
+    if (!target) fail('email check needs a draft .md file');
+    const r = e.checkDraft(readFileSync(target, 'utf8'));
+    print(r, fmt(target + ': ' + (r.ok ? 'OK' : 'FAIL') + ' (' + r.kind + ', ' + r.words + ' words, ' + r.links + ' links, ' + r.images + ' images)', r.findings));
+    process.exitCode = r.ok ? 0 : 1;
+    return;
+  }
+  if (sub === 'build') {
+    if (!target) fail('email build needs a draft .md file');
+    const r = e.buildFile(target, args.out);
+    print(r, fmt('built ' + r.html + ' (' + r.bytes + ' bytes) and ' + r.text + ': ' + (r.check.ok ? 'OK' : 'FAIL'), r.check.findings));
+    process.exitCode = r.check.ok ? 0 : 1;
+    return;
+  }
+  if (sub === 'sequence') {
+    if (!target || !args.out) fail('email sequence needs <welcome|onboarding|launch|game-launch|winback> --out <dir>');
+    const r = e.scaffoldSequence(target, args.out, { name: args.name || 'the product' });
+    return print(r, r.name + ': ' + r.why + '\n' + r.files.join('\n') + '\nFill every [[write: ...]] line, then ums email check each file.');
+  }
+  fail('email needs check, build or sequence');
 }
 
 async function runCmd() {

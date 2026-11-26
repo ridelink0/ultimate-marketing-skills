@@ -244,6 +244,24 @@
       "official": true,
       "access": "read and write through the X API",
       "use": "linked only; UMS's own X route is in scripts/post.mjs"
+    },
+    {
+      "id": "resend",
+      "name": "Resend",
+      "url": "https://mcp.resend.com/mcp",
+      "official": true,
+      "access": "send, broadcasts, contacts, segments, templates, domains",
+      "use": "sending approved emails and broadcasts from code-first teams",
+      "docs": "https://resend.com/docs/mcp-server"
+    },
+    {
+      "id": "mailerlite",
+      "name": "MailerLite",
+      "url": "https://mcp.mailerlite.com/mcp",
+      "official": true,
+      "access": "subscribers, groups, campaigns, automations",
+      "use": "small-team newsletters and automations",
+      "docs": "https://developers.mailerlite.com/mcp"
     }
   ],
   "mcpTooling": [

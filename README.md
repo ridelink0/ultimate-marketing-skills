@@ -91,7 +91,7 @@ Full detail: [autonomy](skills/ultimate-marketing-skills/references/autonomy.md)
   Klaviyo, Supermetrics, Google Analytics), plus the tools that make MCP
   cheaper and safer. It prints installs; it never runs them.
 - **Ships its MCP servers.** HubSpot, Attio, Close, Apollo, Buffer, Canva,
-  Figma, Ahrefs, Similarweb, Klaviyo, Amplitude, Supermetrics and Notion come
+  Figma, Ahrefs, Similarweb, Klaviyo, Resend, MailerLite, Amplitude, Supermetrics and Notion come
   with the plugin, so Claude always knows they exist. Each stays idle until
   you sign in with `/mcp`. `ums needs <job>` lists, in order, what a job needs
   and what is still missing, so Claude asks for the right thing instead of
@@ -99,6 +99,11 @@ Full detail: [autonomy](skills/ultimate-marketing-skills/references/autonomy.md)
   works from your exports and only recommends a server, and asks, when one
   would clearly change the result. `ums packs` keeps the tools that make MCP
   cheaper and safer either way.
+- **Runs email.** `ums email sequence` drafts welcome, onboarding, launch,
+  game-launch and win-back sequences; `ums email check` holds each draft to
+  CAN-SPAM, PECR and CASL and the Gmail and Yahoo sender rules; `ums email build`
+  turns it into email-client HTML plus a plain-text part. Klaviyo, Resend and
+  MailerLite ship as MCP servers for sending, after you approve each send.
 - **Sells, too.** A local pipeline (`ums pipeline`), discovery-call prep,
   one-to-one outreach drafts checked against CAN-SPAM, UK PECR and the Gmail,
   Yahoo and Outlook sender rules, and publisher and creator deal notes. A
@@ -120,6 +125,7 @@ Full detail: [autonomy](skills/ultimate-marketing-skills/references/autonomy.md)
 | `/ultimate-marketing-skills:doctor` | what this machine can do |
 | `/ultimate-marketing-skills:packs` | integrations and MCP servers |
 | `/ultimate-marketing-skills:sell` | pipeline, outreach drafts, call prep |
+| `/ultimate-marketing-skills:email` | sequences, newsletters, launch emails |
 
 ## Using it with Claude
 
