@@ -39,6 +39,7 @@ Strategy and research
   advise --type <t> [--stage s] [--hours h] [--budget usd] [--json]
   adlib <query> [--country US]                  official ad-library and trend URLs to open
   doctor                                        what is installed and what it unlocks
+  mcp [on|off]                                  use MCP servers, or keep Claude off them
   needs [job]                                   what a job needs, in setup order (video, publish-x,
                                                 publish-bluesky, publish-assisted, schedule, research,
                                                 measure, sales, email, design, plan)
@@ -138,10 +139,26 @@ async function main() {
 
   if (cmd === 'needs') {
     const { needs, formatNeeds } = await import('./needs.mjs');
-    const r = needs(sub);
+    let mcpOff = false;
+    try {
+      const { workspace, readConfig } = await import('./queue.mjs');
+      mcpOff = readConfig(workspace(args.dir)).mcp === 'off';
+    } catch {}
+    const r = needs(sub, { mcpOff });
     print(r, formatNeeds(r));
     process.exitCode = r.every((j) => j.ready) ? 0 : 1;
     return;
+  }
+
+  if (cmd === 'mcp') {
+    const { workspace, readConfig, setMcp } = await import('./queue.mjs');
+    const ws = workspace(args.dir);
+    if (sub === 'on' || sub === 'off') {
+      const c = setMcp(ws, sub === 'on' ? 'auto' : 'off', { by: args.by || 'user', quote: args['from-chat'] || '' });
+      return print(c, c.mcp === 'off' ? 'MCP is off for this workspace: Claude works from local files and manual exports, and only recommends a server (and asks) when it would clearly change the result.' : 'MCP is on: Claude uses connected servers and asks you to sign in to the ones a job needs.');
+    }
+    const c = readConfig(ws);
+    return print({ mcp: c.mcp || 'auto' }, `mcp: ${c.mcp || 'auto'}`);
   }
 
   if (cmd === 'packs') {

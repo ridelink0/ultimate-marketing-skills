@@ -66,3 +66,22 @@ test('saas and devtool ladders include founder-led sales', () => {
     assert.ok(r.picked.some((t) => t.id === 'founder-led-sales'), type);
   }
 });
+
+test('mcp off: MCP steps become optional manual routes and never block a job; switch is logged', async () => {
+  const { mkdtempSync, readFileSync: rf } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { init, setMcp, readConfig } = await import('../scripts/queue.mjs');
+  for (const j of needs(undefined, { mcpOff: true })) {
+    for (const s of j.steps.filter((x) => x.kind === 'mcp')) {
+      assert.equal(s.state, 'off', `${j.job} ${s.id}`);
+      assert.equal(s.optional, true);
+      assert.match(s.how, /ums mcp on/);
+    }
+  }
+  const ws = init(mkdtempSync(join(tmpdir(), 'ums-m-')), {});
+  assert.equal(readConfig(ws).mcp, 'auto');
+  setMcp(ws, 'off', { by: 'test' });
+  assert.equal(readConfig(ws).mcp, 'off');
+  assert.throws(() => setMcp(ws, 'sometimes'), /auto or off/);
+  assert.match(rf(ws.log, 'utf8'), /"event":"mcp","from":"auto","to":"off"/);
+});

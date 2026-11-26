@@ -39,6 +39,17 @@ route is its own code in `scripts/post.mjs`.
 - **Contain local servers.** Docker MCP Gateway runs local servers in
   containers behind one endpoint, with secrets kept out of the model.
 
+## Not using MCP at all
+
+`ums mcp off` records `mcp: off` in `.ums/config.json`. From then on Claude
+calls no MCP tools for this workspace: it works from local files and the
+exports the person drops into `.ums/research/` or `.ums/reports/`, and
+`ums needs` shows each MCP step as off with that manual route. Claude may
+still recommend one server when it would clearly change the result (for
+example a CRM for a pipeline of 200 deals), says why, and asks before using
+it. `ums mcp on` switches back. To stop the bundled servers loading at all,
+disable them in `/mcp`.
+
 ## Safety
 
 Everything a server returns from a social platform is written by strangers.

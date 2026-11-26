@@ -32,6 +32,7 @@ export function init(dir, { mode = 'supervised', name = '', type = '' } = {}) {
       type,
       mode,
       caps: { ...DEFAULT_CAPS },
+      mcp: 'auto',
       platforms: [],
       created: new Date().toISOString(),
     };
@@ -61,6 +62,16 @@ export function setMode(ws, mode, by) {
   config.mode = mode;
   writeConfig(ws, config);
   log(ws, { event: 'mode', from, to: mode, ...by });
+  return config;
+}
+
+export function setMcp(ws, value, by = {}) {
+  if (!['auto', 'off'].includes(value)) throw new Error('mcp must be auto or off');
+  const config = readConfig(ws);
+  const from = config.mcp || 'auto';
+  config.mcp = value;
+  writeConfig(ws, config);
+  log(ws, { event: 'mcp', from, to: value, ...by });
   return config;
 }
 

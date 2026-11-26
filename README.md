@@ -95,7 +95,10 @@ Full detail: [autonomy](skills/ultimate-marketing-skills/references/autonomy.md)
   with the plugin, so Claude always knows they exist. Each stays idle until
   you sign in with `/mcp`. `ums needs <job>` lists, in order, what a job needs
   and what is still missing, so Claude asks for the right thing instead of
-  doing less.
+  doing less. Prefer no MCP at all? `ums mcp off` keeps Claude off them; it
+  works from your exports and only recommends a server, and asks, when one
+  would clearly change the result. `ums packs` keeps the tools that make MCP
+  cheaper and safer either way.
 - **Sells, too.** A local pipeline (`ums pipeline`), discovery-call prep,
   one-to-one outreach drafts checked against CAN-SPAM, UK PECR and the Gmail,
   Yahoo and Outlook sender rules, and publisher and creator deal notes. A

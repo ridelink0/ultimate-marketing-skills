@@ -40,6 +40,12 @@ Similarweb, Klaviyo, Amplitude, Supermetrics, Notion), so they are always in
 your tool list; one that needs authentication is not missing, it needs the
 person to sign in with `/mcp`. Run `ums needs <job>` and tell the person, in
 order, exactly what to install, connect or sign in to, then do the job.
+The person can opt out: with `ums mcp off` the workspace says `mcp: off`;
+then call no MCP tools, do the job from local files and their manual
+exports, and only recommend a specific server when it would clearly change
+the result, asking before using it. Either way, `ums packs` lists the tools
+that make MCP cheaper and safer (tool search, MCP Inspector, Docker MCP
+Gateway, Cisco MCP Scanner).
 
 Selling, not just marketing (pipeline, outreach, calls, publisher and creator
 deals): `references/sales.md` and the `sales-playbook` skill.

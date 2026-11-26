@@ -23,6 +23,7 @@ First release.
   founder-led sales rung for SaaS and developer tools, the sales-playbook skill.
 - Thirteen official MCP servers ship with the plugin (HubSpot, Attio, Close, Apollo,
   Buffer, Canva, Figma, Ahrefs, Similarweb, Klaviyo, Amplitude, Supermetrics, Notion);
-  ums needs lists what each job needs, in setup order.
+  ums needs lists what each job needs, in setup order; ums mcp off keeps Claude off
+  MCP entirely (it may still recommend one server, and asks first).
 - Field-tested in draft mode on RideLink (docs/field-tests/ridelink.md).
 - Twelve slash commands, six skills; a directory edition with markdown and JSON only.
