@@ -13,5 +13,5 @@ ARGUMENTS; in Codex it is the rest of the message).
 `${CLAUDE_PLUGIN_ROOT}` is this plugin's folder. Codex leaves it empty: put the folder
 that holds `.codex-plugin/` in its place in every command.
 
-Run `node "${CLAUDE_PLUGIN_ROOT}/scripts/ums.mjs" doctor` and report what it found and what each missing piece would unlock.
+Run `node "${CLAUDE_PLUGIN_ROOT}/scripts/ums.mjs" doctor` and `node "${CLAUDE_PLUGIN_ROOT}/scripts/ums.mjs" tools`, and report what it found, what each missing piece would unlock, and which installed tool takes which job.
 Never print a credential's value.

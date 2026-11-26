@@ -85,3 +85,21 @@ test('mcp off: MCP steps become optional manual routes and never block a job; sw
   assert.throws(() => setMcp(ws, 'sometimes'), /auto or off/);
   assert.match(rf(ws.log, 'utf8'), /"event":"mcp","from":"auto","to":"off"/);
 });
+
+test('bench: detects plugins, skills and programs, and always says what to do', async () => {
+  const { mkdtempSync, mkdirSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { bench } = await import('../scripts/bench.mjs');
+  const home = mkdtempSync(join(tmpdir(), 'ums-b-'));
+  mkdirSync(join(home, '.claude', 'plugins', 'cache', 'ultimate-frontend-skills', 'ultimate-frontend-skills', '6.12.0', 'skills', 'link-preview'), { recursive: true });
+  mkdirSync(join(home, '.claude', 'skills', 'cro'), { recursive: true });
+  const r = bench({ home, binCheck: (b) => b === 'ffmpeg' });
+  const by = Object.fromEntries(r.tools.map((t) => [t.id, t]));
+  assert.equal(by['ultimate-frontend-skills'].installed, true);
+  assert.equal(by.marketingskills.installed, true);
+  assert.equal(by.ffmpeg.installed, true);
+  assert.equal(by['video-watch'].installed, false);
+  assert.equal(by.whisper.installed, false);
+  for (const t of r.tools) assert.ok(t.do && t.do.length > 20, t.id);
+  assert.ok(r.seenByClaude.some((s) => s.id === 'claude-in-chrome'));
+});

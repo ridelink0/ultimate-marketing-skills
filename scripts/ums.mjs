@@ -44,6 +44,7 @@ Strategy and research
   advise --type <t> [--stage s] [--hours h] [--budget usd] [--json]
   adlib <query> [--country US]                  official ad-library and trend URLs to open
   doctor                                        what is installed and what it unlocks
+  tools                                         the bench: which installed tool to use for each job
   mcp [on|off]                                  use MCP servers, or keep Claude off them
   needs [job]                                   what a job needs, in setup order (video, publish-x,
                                                 publish-bluesky, publish-assisted, schedule, research,
@@ -141,6 +142,12 @@ async function main() {
     const { doctor, formatDoctor } = await import('./doctor.mjs');
     const r = doctor();
     return print(r, formatDoctor(r));
+  }
+
+  if (cmd === 'tools') {
+    const { bench, formatBench } = await import('./bench.mjs');
+    const r = bench();
+    return print(r, formatBench(r));
   }
 
   if (cmd === 'needs') {

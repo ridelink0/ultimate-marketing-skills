@@ -123,7 +123,7 @@ Full detail: [autonomy](skills/ultimate-marketing-skills/references/autonomy.md)
 | `/ultimate-marketing-skills:launch` | launch week, every post ready |
 | `/ultimate-marketing-skills:copy-check` | copy audit and platform check |
 | `/ultimate-marketing-skills:specs` | platform limits with sources |
-| `/ultimate-marketing-skills:doctor` | what this machine can do |
+| `/ultimate-marketing-skills:doctor` | what this machine can do, and the tool bench |
 | `/ultimate-marketing-skills:packs` | integrations and MCP servers |
 | `/ultimate-marketing-skills:sell` | pipeline, outreach drafts, call prep |
 | `/ultimate-marketing-skills:email` | sequences, newsletters, launch emails |

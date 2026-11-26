@@ -56,11 +56,17 @@ and the `email-marketing` skill.
 
 ```bash
 node "${CLAUDE_PLUGIN_ROOT}/scripts/ums.mjs" doctor
+node "${CLAUDE_PLUGIN_ROOT}/scripts/ums.mjs" tools
 node "${CLAUDE_PLUGIN_ROOT}/scripts/ums.mjs" init --name "<project>" --type <type>
 ```
 
 `doctor` says what this machine can do (ffmpeg, captions, UFS, API
-credentials). `init` makes `.ums/` with `brief.md`, `voice.md`, the queue and
+credentials). `tools` is the bench: for each job it names the installed tool
+to hand the work to (Ultimate Frontend Skills for pages, video-watch for
+reference videos, Remotion or HyperFrames for motion, marketingskills for
+conversion, the MJML skill for complex emails) and what to do when it is
+absent. Follow it, and check your own tool list for Claude in Chrome, the
+browser pane and the MCP servers. `init` makes `.ums/` with `brief.md`, `voice.md`, the queue and
 the audit log. Fill the brief from the repo, the store page and the person's
 answers; ask only for what you cannot find. Then:
 
