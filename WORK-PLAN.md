@@ -213,8 +213,8 @@ UFS-parity gaps still open, do in this order:
 
 - Push session ums-push (local_52f5a66c) is idle, pushed nothing. Push only when every item below
   is done; then message it to run its brief.
-- Sales research re-run in background -> research_notes/.../sales.md. If absent or truncated,
-  re-run that one track, then build S2.
+- Sales research DONE: research_notes/.../sales.md exists (second-pass verdicts inside; LinkedIn
+  invite cap unverifiable, do not encode a number). Build S2 from it.
 - Field test started: RideLink (C:/rl, Expo app, no README; facts in APPLE_REVIEW.md,
   app.config.js). Run UMS in a temp workspace outside C:/rl, draft mode only; write
   docs/field-tests/ridelink.md. Nothing written into C:/rl.
