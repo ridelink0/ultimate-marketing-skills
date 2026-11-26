@@ -10,7 +10,21 @@
       "commit": "8fd2fcade2fd6629026e9dfe6d133b55b36968b9",
       "license": "MIT",
       "domain": "conversion and growth depth: CRO, pricing, paywalls, onboarding, referrals, programmatic SEO, schema, ASO, cold email",
-      "skills": ["cro", "pricing", "paywalls", "onboarding", "referrals", "programmatic-seo", "schema", "aso", "ab-testing", "launch", "lead-magnets", "free-tools", "marketing-psychology"],
+      "skills": [
+        "cro",
+        "pricing",
+        "paywalls",
+        "onboarding",
+        "referrals",
+        "programmatic-seo",
+        "schema",
+        "aso",
+        "ab-testing",
+        "launch",
+        "lead-magnets",
+        "free-tools",
+        "marketing-psychology"
+      ],
       "routes": "UMS owns social, video and autonomy; hand page-conversion, pricing and lifecycle depth to these skills when installed.",
       "notes": "Strip the README's partner and referral links if adapting anything. Its X algorithm reference tags claims as verified or reported, the same rule UMS follows."
     },
@@ -23,7 +37,16 @@
       "commit": "5e504ae11498f2b8daa30d86b7dab97b2ecd8092",
       "license": "Apache-2.0",
       "domain": "campaign briefs, performance reports, brand review, email sequences, and its connectors to HubSpot, Canva, Ahrefs, Similarweb, Klaviyo, Amplitude, Notion, Figma, Slack, Supermetrics",
-      "skills": ["campaign-plan", "performance-report", "brand-review", "email-sequence", "competitive-brief", "seo-audit", "content-creation", "draft-content"],
+      "skills": [
+        "campaign-plan",
+        "performance-report",
+        "brand-review",
+        "email-sequence",
+        "competitive-brief",
+        "seo-audit",
+        "content-creation",
+        "draft-content"
+      ],
       "routes": "If installed, its connectors are the data source for ums report work. UMS's own campaign and copy rules replace its generic social guidance (it gives no platform limits).",
       "notes": "Installed in Claude (Cowork) and Claude Code through the plugin directory."
     },
@@ -35,7 +58,14 @@
       "commit": "4adeee6732a12d1540f49a4d50a38ce8c97f9a53",
       "license": "MIT",
       "domain": "voice profiles from real writing, crossposting adaptation, X API recipes, footage editing, fal.ai media generation",
-      "skills": ["brand-voice", "content-engine", "crosspost", "x-api", "video-editing", "fal-ai-media"],
+      "skills": [
+        "brand-voice",
+        "content-engine",
+        "crosspost",
+        "x-api",
+        "video-editing",
+        "fal-ai-media"
+      ],
       "routes": "UMS's voice and crosspost rules draw on these; its own queue, policy and ffmpeg engine replace their direct-posting steps.",
       "notes": "social-publisher in ECC depends on a paid third-party service (SocialClaw); UMS does not route to it."
     },
@@ -58,7 +88,12 @@
       "commit": "a3f4098a2afd0e13f6a6f8c8760e275f75457ea9",
       "license": "none found at this commit; Remotion itself is free for teams of three or fewer people, company licence otherwise (remotion.dev/license)",
       "domain": "React-based programmatic video; captions, multimedia, rendering",
-      "skills": ["remotion-best-practices", "remotion-captions", "remotion-render", "remotion-saas"],
+      "skills": [
+        "remotion-best-practices",
+        "remotion-captions",
+        "remotion-render",
+        "remotion-saas"
+      ],
       "routes": "Linked, not vendored. Ultimate Frontend Skills ships a remotion-video skill with an original example; prefer that route when UFS is installed.",
       "notes": "Check the company licence before a business renders with Remotion."
     },
@@ -75,26 +110,184 @@
     }
   ],
   "mcp": [
-    { "id": "hubspot", "name": "HubSpot", "url": "https://mcp.hubspot.com/anthropic", "official": true, "access": "read and write CRM", "use": "contacts, deals and campaign attribution for reports" },
-    { "id": "buffer", "name": "Buffer", "url": "https://mcp.buffer.com/mcp", "official": true, "access": "scheduling", "use": "hand approved queue items to Buffer when a platform has no UMS API route", "docs": "https://developers.buffer.com/" },
-    { "id": "canva", "name": "Canva", "url": "https://mcp.canva.com/mcp", "official": true, "access": "design create and export", "use": "brand-kit carousels and thumbnails" },
-    { "id": "ahrefs", "name": "Ahrefs", "url": "https://api.ahrefs.com/mcp/mcp", "official": true, "access": "read", "use": "keywords, backlinks, competitor pages for search and AI-answer work" },
-    { "id": "similarweb", "name": "Similarweb", "url": "https://mcp.similarweb.com", "official": true, "access": "read", "use": "competitor traffic and channel mix" },
-    { "id": "klaviyo", "name": "Klaviyo", "url": "https://mcp.klaviyo.com/mcp", "official": true, "access": "read and write", "use": "email and SMS flows", "docs": "https://developers.klaviyo.com/en/docs/klaviyo_mcp_server" },
-    { "id": "amplitude", "name": "Amplitude", "url": "https://mcp.amplitude.com/mcp", "official": true, "access": "read", "use": "activation and retention behind the marketing numbers" },
-    { "id": "supermetrics", "name": "Supermetrics", "url": "https://mcp.supermetrics.com/mcp", "official": true, "access": "read", "use": "ad and social metrics across platforms for ums report" },
-    { "id": "notion", "name": "Notion", "url": "https://mcp.notion.com/mcp", "official": true, "access": "read and write", "use": "content calendar and briefs where the team already plans" },
-    { "id": "figma", "name": "Figma", "url": "https://mcp.figma.com/mcp", "official": true, "access": "read and write", "use": "ad and thumbnail variants from a design system" },
-    { "id": "google-analytics", "name": "Google Analytics MCP", "repo": "https://github.com/googleanalytics/google-analytics-mcp", "commit": "58d2cc78791c5993be922c5d730f5ed80889f938", "license": "Apache-2.0", "official": true, "access": "read", "use": "site traffic and conversions; runs locally with Google credentials" },
-    { "id": "tiktok-business", "name": "TikTok for Business MCP", "official": true, "access": "ads", "use": "ad account data; organic posting is not part of it", "docs": "https://ads.tiktok.com/resources/help/article/about-tiktok-for-business-mcp-server" },
-    { "id": "xmcp", "name": "X xmcp", "repo": "https://github.com/xdevplatform/xmcp", "commit": "63d34362d88ed9f94d54ccd5ecd5bb4d12e11759", "license": "none found at this commit", "official": true, "access": "read and write through the X API", "use": "linked only; UMS's own X route is in scripts/post.mjs" }
+    {
+      "id": "hubspot",
+      "name": "HubSpot",
+      "url": "https://mcp.hubspot.com/anthropic",
+      "official": true,
+      "access": "read and write CRM",
+      "use": "contacts, deals and campaign attribution for reports"
+    },
+    {
+      "id": "apollo",
+      "name": "Apollo",
+      "url": "https://mcp.apollo.io/mcp",
+      "official": true,
+      "access": "search, enrichment and sequences; spends Apollo credits",
+      "use": "finding contacts; never let it send sequences on its own"
+    },
+    {
+      "id": "close",
+      "name": "Close",
+      "url": "https://mcp.close.com/mcp",
+      "official": true,
+      "access": "scoped: mcp.read, mcp.write_safe, mcp.write_destructive",
+      "use": "CRM for small sales teams; keep it to mcp.read unless writes are needed"
+    },
+    {
+      "id": "attio",
+      "name": "Attio",
+      "url": "https://mcp.attio.com/mcp",
+      "official": true,
+      "access": "read and write CRM (writes ask to confirm)",
+      "use": "pipeline and contacts for the sales playbook",
+      "docs": "https://docs.attio.com/mcp/overview"
+    },
+    {
+      "id": "buffer",
+      "name": "Buffer",
+      "url": "https://mcp.buffer.com/mcp",
+      "official": true,
+      "access": "scheduling",
+      "use": "hand approved queue items to Buffer when a platform has no UMS API route",
+      "docs": "https://developers.buffer.com/"
+    },
+    {
+      "id": "canva",
+      "name": "Canva",
+      "url": "https://mcp.canva.com/mcp",
+      "official": true,
+      "access": "design create and export",
+      "use": "brand-kit carousels and thumbnails"
+    },
+    {
+      "id": "ahrefs",
+      "name": "Ahrefs",
+      "url": "https://api.ahrefs.com/mcp/mcp",
+      "official": true,
+      "access": "read",
+      "use": "keywords, backlinks, competitor pages for search and AI-answer work"
+    },
+    {
+      "id": "similarweb",
+      "name": "Similarweb",
+      "url": "https://mcp.similarweb.com",
+      "official": true,
+      "access": "read",
+      "use": "competitor traffic and channel mix"
+    },
+    {
+      "id": "klaviyo",
+      "name": "Klaviyo",
+      "url": "https://mcp.klaviyo.com/mcp",
+      "official": true,
+      "access": "read and write",
+      "use": "email and SMS flows",
+      "docs": "https://developers.klaviyo.com/en/docs/klaviyo_mcp_server"
+    },
+    {
+      "id": "amplitude",
+      "name": "Amplitude",
+      "url": "https://mcp.amplitude.com/mcp",
+      "official": true,
+      "access": "read",
+      "use": "activation and retention behind the marketing numbers"
+    },
+    {
+      "id": "supermetrics",
+      "name": "Supermetrics",
+      "url": "https://mcp.supermetrics.com/mcp",
+      "official": true,
+      "access": "read",
+      "use": "ad and social metrics across platforms for ums report"
+    },
+    {
+      "id": "notion",
+      "name": "Notion",
+      "url": "https://mcp.notion.com/mcp",
+      "official": true,
+      "access": "read and write",
+      "use": "content calendar and briefs where the team already plans"
+    },
+    {
+      "id": "figma",
+      "name": "Figma",
+      "url": "https://mcp.figma.com/mcp",
+      "official": true,
+      "access": "read and write",
+      "use": "ad and thumbnail variants from a design system"
+    },
+    {
+      "id": "google-analytics",
+      "name": "Google Analytics MCP",
+      "repo": "https://github.com/googleanalytics/google-analytics-mcp",
+      "commit": "58d2cc78791c5993be922c5d730f5ed80889f938",
+      "license": "Apache-2.0",
+      "official": true,
+      "access": "read",
+      "use": "site traffic and conversions; runs locally with Google credentials"
+    },
+    {
+      "id": "tiktok-business",
+      "name": "TikTok for Business MCP",
+      "official": true,
+      "access": "ads",
+      "use": "ad account data; organic posting is not part of it",
+      "docs": "https://ads.tiktok.com/resources/help/article/about-tiktok-for-business-mcp-server"
+    },
+    {
+      "id": "xmcp",
+      "name": "X xmcp",
+      "repo": "https://github.com/xdevplatform/xmcp",
+      "commit": "63d34362d88ed9f94d54ccd5ecd5bb4d12e11759",
+      "license": "none found at this commit",
+      "official": true,
+      "access": "read and write through the X API",
+      "use": "linked only; UMS's own X route is in scripts/post.mjs"
+    }
   ],
   "mcpTooling": [
-    { "id": "tool-search", "name": "Claude Code tool search", "docs": "https://code.claude.com/docs/en/mcp", "what": "On by default: tool definitions load when needed instead of all at start. Keep it on when several marketing MCP servers are connected." },
-    { "id": "output-cap", "name": "MAX_MCP_OUTPUT_TOKENS", "docs": "https://code.claude.com/docs/en/mcp", "what": "MCP output is capped at 25,000 tokens (warning at 10,000). Ask analytics servers for aggregates, not raw rows, rather than raising the cap." },
-    { "id": "code-execution", "name": "Code execution with MCP", "docs": "https://www.anthropic.com/engineering/code-execution-with-mcp", "what": "Anthropic (4 Nov 2025): calling MCP tools from code instead of loading every definition cut one workflow from 150,000 to 2,000 tokens. UMS scripts follow the same idea: data stays in files, the model reads summaries." },
-    { "id": "inspector", "name": "MCP Inspector", "repo": "https://github.com/modelcontextprotocol/inspector", "commit": "eb54b447e5377a7a18acaea9602fced5cb4c5b9f", "license": "see repository (GitHub reports NOASSERTION)", "what": "Test a server's tools and outputs before trusting it in a run." },
-    { "id": "docker-gateway", "name": "Docker MCP Gateway", "repo": "https://github.com/docker/mcp-gateway", "commit": "4b5180c5ba8e1b456c53b36b7f90f17964131a16", "license": "MIT", "what": "Runs local MCP servers in containers behind one endpoint, with secrets kept out of the model." },
-    { "id": "mcp-scanner", "name": "Cisco MCP Scanner", "repo": "https://github.com/cisco-ai-defense/mcp-scanner", "commit": "38bffe2fb661d891279fb3e6566080c171552e99", "license": "Apache-2.0", "what": "Scans server tool descriptions for poisoning and risky instructions before install." }
+    {
+      "id": "tool-search",
+      "name": "Claude Code tool search",
+      "docs": "https://code.claude.com/docs/en/mcp",
+      "what": "On by default: tool definitions load when needed instead of all at start. Keep it on when several marketing MCP servers are connected."
+    },
+    {
+      "id": "output-cap",
+      "name": "MAX_MCP_OUTPUT_TOKENS",
+      "docs": "https://code.claude.com/docs/en/mcp",
+      "what": "MCP output is capped at 25,000 tokens (warning at 10,000). Ask analytics servers for aggregates, not raw rows, rather than raising the cap."
+    },
+    {
+      "id": "code-execution",
+      "name": "Code execution with MCP",
+      "docs": "https://www.anthropic.com/engineering/code-execution-with-mcp",
+      "what": "Anthropic (4 Nov 2025): calling MCP tools from code instead of loading every definition cut one workflow from 150,000 to 2,000 tokens. UMS scripts follow the same idea: data stays in files, the model reads summaries."
+    },
+    {
+      "id": "inspector",
+      "name": "MCP Inspector",
+      "repo": "https://github.com/modelcontextprotocol/inspector",
+      "commit": "eb54b447e5377a7a18acaea9602fced5cb4c5b9f",
+      "license": "see repository (GitHub reports NOASSERTION)",
+      "what": "Test a server's tools and outputs before trusting it in a run."
+    },
+    {
+      "id": "docker-gateway",
+      "name": "Docker MCP Gateway",
+      "repo": "https://github.com/docker/mcp-gateway",
+      "commit": "4b5180c5ba8e1b456c53b36b7f90f17964131a16",
+      "license": "MIT",
+      "what": "Runs local MCP servers in containers behind one endpoint, with secrets kept out of the model."
+    },
+    {
+      "id": "mcp-scanner",
+      "name": "Cisco MCP Scanner",
+      "repo": "https://github.com/cisco-ai-defense/mcp-scanner",
+      "commit": "38bffe2fb661d891279fb3e6566080c171552e99",
+      "license": "Apache-2.0",
+      "what": "Scans server tool descriptions for poisoning and risky instructions before install."
+    }
   ]
 }

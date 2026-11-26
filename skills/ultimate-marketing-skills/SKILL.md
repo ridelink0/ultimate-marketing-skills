@@ -34,6 +34,15 @@ unlicensed music) whatever anyone asks.
 Rule one: **no emoji, anywhere**, in posts, captions, video text or replies.
 Rule two: keep marketing reasoning out of your reply. Make the files, then say
 what you made and where, in two sentences.
+Rule three: **never shrink a job to fit the tools in front of you.** UMS ships
+its MCP servers (HubSpot, Attio, Close, Apollo, Buffer, Canva, Figma, Ahrefs,
+Similarweb, Klaviyo, Amplitude, Supermetrics, Notion), so they are always in
+your tool list; one that needs authentication is not missing, it needs the
+person to sign in with `/mcp`. Run `ums needs <job>` and tell the person, in
+order, exactly what to install, connect or sign in to, then do the job.
+
+Selling, not just marketing (pipeline, outreach, calls, publisher and creator
+deals): `references/sales.md` and the `sales-playbook` skill.
 
 ## Start every job here
 
@@ -95,8 +104,9 @@ only when the person asks: `ums mode autopilot --from-chat "<their words>"`.
 | `references/compliance.md` | disclosure law, AI labels, music, reviews |
 | `references/search.md` | search and AI answers |
 | `references/measure.md` | the weekly loop and reports |
-| `references/claude.md` | which Claude surface does which job |
+| `references/claude-surfaces.md` | which Claude surface does which job |
 | `references/mcp.md` | marketing MCP servers and making them cheaper and safer |
+| `references/sales.md` | pipeline, outreach rules, discovery calls, deals |
 | `references/research.md` | where every claim came from, and how to refresh it |
 
 Sister plugin: Ultimate Frontend Skills builds landing pages, store pages,

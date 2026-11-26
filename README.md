@@ -90,6 +90,16 @@ Full detail: [autonomy](skills/ultimate-marketing-skills/references/autonomy.md)
   official marketing MCP servers (HubSpot, Buffer, Canva, Ahrefs, Similarweb,
   Klaviyo, Supermetrics, Google Analytics), plus the tools that make MCP
   cheaper and safer. It prints installs; it never runs them.
+- **Ships its MCP servers.** HubSpot, Attio, Close, Apollo, Buffer, Canva,
+  Figma, Ahrefs, Similarweb, Klaviyo, Amplitude, Supermetrics and Notion come
+  with the plugin, so Claude always knows they exist. Each stays idle until
+  you sign in with `/mcp`. `ums needs <job>` lists, in order, what a job needs
+  and what is still missing, so Claude asks for the right thing instead of
+  doing less.
+- **Sells, too.** A local pipeline (`ums pipeline`), discovery-call prep,
+  one-to-one outreach drafts checked against CAN-SPAM, UK PECR and the Gmail,
+  Yahoo and Outlook sender rules, and publisher and creator deal notes. A
+  person sends every message.
 
 ## Slash commands
 
@@ -106,6 +116,7 @@ Full detail: [autonomy](skills/ultimate-marketing-skills/references/autonomy.md)
 | `/ultimate-marketing-skills:specs` | platform limits with sources |
 | `/ultimate-marketing-skills:doctor` | what this machine can do |
 | `/ultimate-marketing-skills:packs` | integrations and MCP servers |
+| `/ultimate-marketing-skills:sell` | pipeline, outreach drafts, call prep |
 
 ## Using it with Claude
 
@@ -114,7 +125,7 @@ the scripts and renders; Claude reads its own contact sheets; Claude in Chrome
 does ad-library research and fills composers; Claude Code `/schedule` routines
 run the weekly loop; Claude artifacts turn `.ums/reports/` into a dashboard
 the team can open; Claude's MCP connectors bring in real numbers. See
-[which Claude does which job](skills/ultimate-marketing-skills/references/claude.md).
+[which Claude does which job](skills/ultimate-marketing-skills/references/claude-surfaces.md).
 
 ## The research
 

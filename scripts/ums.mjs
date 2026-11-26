@@ -39,6 +39,9 @@ Strategy and research
   advise --type <t> [--stage s] [--hours h] [--budget usd] [--json]
   adlib <query> [--country US]                  official ad-library and trend URLs to open
   doctor                                        what is installed and what it unlocks
+  needs [job]                                   what a job needs, in setup order (video, publish-x,
+                                                publish-bluesky, publish-assisted, schedule, research,
+                                                measure, sales, email, design, plan)
   packs [--only id] [--json]                    pinned third-party skills and MCP servers
 
 Add --json to most commands for machine-readable output.`;
@@ -131,6 +134,14 @@ async function main() {
     const { doctor, formatDoctor } = await import('./doctor.mjs');
     const r = doctor();
     return print(r, formatDoctor(r));
+  }
+
+  if (cmd === 'needs') {
+    const { needs, formatNeeds } = await import('./needs.mjs');
+    const r = needs(sub);
+    print(r, formatNeeds(r));
+    process.exitCode = r.every((j) => j.ready) ? 0 : 1;
+    return;
   }
 
   if (cmd === 'packs') {

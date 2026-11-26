@@ -131,7 +131,7 @@ Make the files, then say what you made and where in two sentences.
 | \`references/compliance.md\` | disclosure, reviews, music, email |
 | \`references/search.md\` | search and AI answers |
 | \`references/measure.md\` | the weekly loop |
-| \`references/claude.md\` | which Claude surface does which job |
+| \`references/claude-surfaces.md\` | which Claude surface does which job |
 | \`references/mcp.md\` | marketing MCP servers |
 | \`references/research.md\` | sources and refreshing them |
 `;
