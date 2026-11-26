@@ -1,0 +1,55 @@
+{
+  "name": "ultimate-marketing-skills",
+  "version": "1.0.0",
+  "description": "Ultimate Marketing Skills (UMS) for Claude Code and Codex: social-first marketing with an advisor, an ffmpeg video engine, copy and platform checks, and an approval queue with four autonomy modes.",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "claude-plugin",
+    "claude-skills",
+    "codex",
+    "marketing",
+    "social-media",
+    "short-form-video",
+    "tiktok",
+    "youtube-shorts",
+    "instagram-reels",
+    "ffmpeg",
+    "launch",
+    "ai-agent"
+  ],
+  "homepage": "https://github.com/ridelink0/ultimate-marketing-skills",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ridelink0/ultimate-marketing-skills.git"
+  },
+  "bugs": "https://github.com/ridelink0/ultimate-marketing-skills/issues",
+  "license": "MIT",
+  "author": "Gev (https://github.com/ridelink0)",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "ums": "scripts/ums.mjs"
+  },
+  "files": [
+    "scripts/",
+    "skills/",
+    "commands/",
+    "hooks/",
+    ".claude-plugin/",
+    ".codex-plugin/",
+    "AGENTS.md",
+    "LICENSE",
+    "PRIVACY.md",
+    "README.md",
+    "CHANGELOG.md",
+    "CREDITS.md"
+  ],
+  "scripts": {
+    "test": "node --test --test-concurrency=1 test/*.test.mjs",
+    "build:directory": "node tools/directory-edition.mjs",
+    "ums": "node scripts/ums.mjs"
+  }
+}

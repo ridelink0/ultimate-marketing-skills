@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "ultimate-marketing-skills",
+  "description": "Social-first marketing, video and launch work for Claude Code and Codex",
+  "owner": {
+    "name": "Gev",
+    "email": "app.ridelink@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "ultimate-marketing-skills",
+      "description": "Ultimate Marketing Skills (UMS for Claude). Market apps, games, websites, SaaS, developer tools and local businesses the social-first way, on one route from brief to published post: an advisor that picks the tactic ladder for the project type, hours and budget; native short-form video built from a storyboard with ffmpeg (captions, push-ins, ducked voiceover, -14 LUFS) and checked against TikTok, Reels and Shorts limits; ad-library and trend research; copy that does not read as AI-written; and an approval queue with four autonomy modes, from advice only to autopilot that publishes approved X and Bluesky posts on schedule. Claude in Chrome fills the composer for every other platform and a person presses publish.",
+      "author": {
+        "name": "Gev"
+      },
+      "category": "marketing",
+      "source": "./",
+      "homepage": "https://github.com/ridelink0/ultimate-marketing-skills",
+      "version": "1.0.0"
+    }
+  ]
+}

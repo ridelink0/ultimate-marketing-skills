@@ -1,0 +1,16 @@
+{
+  "description": "Points Claude at the ultimate-marketing-skills skill when a prompt is clearly about marketing, launching or promoting something. Silent on every other prompt.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/nudge.mjs\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
