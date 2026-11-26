@@ -29,7 +29,7 @@ export function render() {
     repository: root.repository,
     license: root.license,
     keywords: root.keywords,
-    privacyPolicyUrl: root.privacyPolicyUrl,
+    privacyPolicyUrl: `${root.homepage}/blob/master/directory/ultimate-marketing-skills/PRIVACY.md`,
     icon: './icon.png',
   };
   files.set('.claude-plugin/plugin.json', JSON.stringify(manifest, null, 2) + '\n');
